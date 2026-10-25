@@ -128,7 +128,7 @@ test('every published secret has five exact Markdown versions, available offline
     for (const lang of Object.keys(h.window.NSG_I18N.languages)) {
       const file = secret.files[lang];
       assert.ok(file, `${secret.id} ${lang}`);
-      assert.equal(h.window.NSG_TEXTS.secrets[file], fs.readFileSync(path.join(root, file), 'utf8').replace(/^﻿/, ''));
+      assert.equal(h.window.NSG_TEXTS.secrets[file], fs.readFileSync(path.join(root, file), 'utf8').replace(/^﻿/, '').replace(/\r\n/g, '\n'));
     }
     // The story text may be revised by its author; what must hold is one title line per language, all different.
     const titles = Object.keys(secret.files).map((lang) => h.window.NSG_TEXTS.secrets[secret.files[lang]].split('\n')[0].trim());

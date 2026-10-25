@@ -1,0 +1,5 @@
+# Mismos finales de línea en todos los sistemas: las pruebas comparan el catálogo generado con los .md.
+* text=auto eol=lf
+*.mp3 binary
+*.png binary
+*.jpg binary
