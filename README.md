@@ -33,8 +33,8 @@
 Requisitos: un navegador moderno y Python 3 (o cualquier servidor estático).
 
 ```bash
-git clone https://github.com/ramonolivermartos/TopSecret.git
-cd TopSecret
+git clone https://github.com/ramonolivermartos/Top-Secret.git
+cd Top-Secret
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
@@ -58,22 +58,25 @@ Verás el menú de juegos. Elige uno, juega y vigila el contador: el siguiente s
 ## Estructura del repositorio
 
 ```text
-TopSecret/
-├── index.html
+Top-Secret/
+├── index.html                   punto de entrada
 ├── AGENTS.md                    estructura, contratos y flujo de trabajo
-├── skills/                      guías por componente
-├── scripts/
-│   ├── games-data.js            registro de juegos
-│   ├── i18n.js                  selector de idioma
+├── juegos/                      una carpeta por minijuego
+├── scripts/                     menú, guardado, secretos, audio e idiomas
 │   ├── localization-data.js     catálogo generado (no se edita)
 │   ├── secrets-data.js          secretos generados (no se edita)
 │   ├── messages-data.js         mensajes generados (no se edita)
 │   ├── build-translations.py    valida textos y genera los catálogos
 │   └── textos.py                sincroniza con un Drive privado (no hace falta para jugar)
+├── styles/                      hojas de estilo
+├── secretos/                    galería de secretos desbloqueados
+├── music/                       música
+├── debug/                       herramientas de depuración de puntos y dificultad
+├── skills/                      guías por componente
 ├── tests/                       tests de Node y de la secuencia de secretos
+├── Directives/                  guía narrativa y secuencia de umbrales
 └── Textos/
     ├── CONVENTIONS.md           la única especificación de los textos
-    ├── Directives/              guía narrativa y secuencia de umbrales
     └── <ES|EN|FR|RU|ZH>/
         ├── Common/              interfaz compartida
         ├── Games/<juego>/       textos de cada juego
@@ -138,8 +141,8 @@ A Claude, por dejarse orquestar tan bien: por aguantar las correcciones, las vue
 You need a modern browser and Python 3 (or any static server). The game is plain HTML, CSS and JavaScript, with no dependencies and no build step.
 
 ```bash
-git clone https://github.com/ramonolivermartos/TopSecret.git
-cd TopSecret
+git clone https://github.com/ramonolivermartos/Top-Secret.git
+cd Top-Secret
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
