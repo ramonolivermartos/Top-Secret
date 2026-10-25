@@ -1,0 +1,22 @@
+.display { height: 92px; padding: 12px 4px 8px; display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end; overflow: hidden; }
+.expression { min-height: 21px; color: #a1a6a0; font: 13px 'DM Mono', monospace; }
+.result { max-width: 100%; overflow: hidden; color: #202421; font: 42px 'DM Mono', monospace; letter-spacing: -.06em; white-space: nowrap; }
+/* Los objetivos de esta variante pueden ocupar 13 caracteres contando el
+   signo; en pantallas estrechas reducimos el resultado para que no se corte. */
+@media (max-width: 760px) {
+  .result { font-size: 34px; }
+}
+.keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+.key { min-width: 0; height: 48px; border: 0; border-radius: 13px; background: #f5f6f4; color: #343a35; font: 500 17px 'DM Sans', sans-serif; cursor: pointer; transition: background .15s, transform .12s; }
+.key:hover { background: #e9ece8; }
+.key:active { transform: scale(.96); }
+.key:focus-visible { outline: 2px solid #668c68; outline-offset: 2px; }
+.key.utility { background: #edf1ec; color: #607361; font-size: 14px; }
+.key.operator { background: #f0f4ee; color: #527854; font-size: 21px; }
+.key.equals { background: #668c68; color: white; font-size: 22px; }
+.key.equals:hover { background: #557b57; }
+.key.zero { grid-column: span 2; text-align: left; padding-left: 23px; }
+
+@media (max-width: 760px) {
+  .key { height: 46px; }
+}

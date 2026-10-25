@@ -1,0 +1,51 @@
+# Main menu and options — 简体中文
+
+Locale: `zh-Hans`. Translated from `ES`, the source language. Keep the keys and every `{{variable}}` and HTML tag unchanged.
+
+```json
+{
+  "menu.titleStart": "选择你的",
+  "menu.titleHighlight": "挑战",
+  "menu.eyebrow": "有点无厘头的小游戏",
+  "menu.description": "这里有一组节奏快、略显荒诞的小游戏。每款游戏难度都不一样，选之前可要想清楚。",
+  "menu.totalScoreLabel": "总得分",
+  "menu.saveStatusSaved": "进度已保存",
+  "menu.saveStatusPending": "进度尚未保存",
+  "menu.saveStatusJustSaved": "进度保存成功！",
+  "menu.saveButton": "保存进度",
+  "menu.featuredTitle": "为你精选",
+  "menu.allGamesTitle": "全部游戏",
+  "menu.searchPlaceholder": "搜索游戏…",
+  "menu.searchAriaLabel": "搜索游戏",
+  "menu.footer": "专为让数字顺利运转而生。至于能不能，另说。",
+  "menu.play": "开始游戏",
+  "menu.comingSoon": "即将推出",
+  "menu.difficultyLabel": "难度 {{value}}/10",
+  "menu.difficultyUnknown": "难度暂未公布",
+  "menu.noResults": "没有找到符合搜索条件的游戏。",
+  "menu.langAriaLabel": "语言",
+  "menu.optionsTitle": "选项",
+  "menu.musicType": "音乐类型",
+  "menu.modeCancel": "取消",
+  "menu.modeStart": "开始",
+  "menu.random.title": "随机游戏",
+  "menu.random.text": "让运气为你挑选一个小游戏。",
+  "menu.random.play": "开玩",
+  "menu.random.modalTitle": "你抽到了：",
+  "menu.sequence.title": "百万序列",
+  "menu.sequence.text": "连续五个小游戏。全部通关即可拿下大奖。",
+  "menu.sequence.play": "开玩",
+  "menu.sequence.abandoned": "你放弃了上一个序列：0 分。",
+  "menu.sequence.modalTitle": "百万序列",
+  "menu.sequence.rule1": "你将进行 5 轮，每轮是随机难度的随机小游戏。本身已有多轮的游戏只算作一个小游戏。",
+  "menu.sequence.rule2": "通关一个小游戏价值 5,000 分，但只有走到最后才能拿到。在有多轮的游戏中，必须全部获胜。",
+  "menu.sequence.rule3": "完成整个序列即可获得 25,000 分（5 × 5,000），外加 10,000 分奖励。",
+  "menu.sequence.rule4": "如果输掉某个小游戏或中途退出，你得 0 分，各游戏的常规得分也不计入。音乐永不停歇。",
+  "menu.playerAriaLabel": "玩家：{{name}}，{{description}}",
+  "menu.pagesLabel": "游戏分页",
+  "menu.previous": "上一页",
+  "menu.next": "下一页",
+  "menu.page": "页码",
+  "menu.secretsButton": "秘密"
+}
+```

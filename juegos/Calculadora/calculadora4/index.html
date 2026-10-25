@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f7">
+  <title data-i18n="calc4.title">Reto de cálculo 4</title>
+  <link rel="stylesheet" href="../../../styles/common.css">
+  <link rel="stylesheet" href="../../../styles/sequence.css">
+  <link rel="stylesheet" href="calculadora4.css">
+  <link rel="stylesheet" href="../../../styles/secrets.css">
+  <script src="../../../scripts/storage.js" defer></script>
+  <script src="../../../scripts/sequence.js" defer></script>
+  <script src="../../../scripts/localization-data.js" defer></script>
+  <script src="../../../scripts/i18n.js" defer></script>
+  <script src="../../../scripts/music-data.js" defer></script>
+  <script src="../../../scripts/audio.js" defer></script>
+  <script src="../../../scripts/messages-data.js" defer></script>
+  <script src="../../../scripts/quit-confirm.js" defer></script>
+  <script src="../../../scripts/secrets-data.js" defer></script>
+  <script src="../../../scripts/secrets.js" defer></script>
+  <script src="../../../debug/difficulty-debug.js" defer></script>
+  <script src="calculadora4.js" defer></script>
+</head>
+<body class="game-page">
+  <main class="layout">
+    <section class="intro" aria-labelledby="page-title">
+      <a class="text-link back-link" href="../../../index.html"><span class="back-arrow">→</span> <span data-i18n="common.backToMenu">Volver al menú</span></a>
+      <p class="eyebrow" data-i18n="calc.eyebrow">Pon a prueba tu rapidez</p>
+      <h1 id="page-title"><span data-i18n="calc.titleLine1">Un número.</span><br><span data-i18n="calc.titleLine2">Diez segundos.</span></h1>
+      <p class="description" data-i18n="calc4.description">Consigue el objetivo en diez segundos: puede ser positivo o negativo, con entre dos y tres decimales, hasta 25.000.000.</p>
+      <div class="score-card" aria-live="polite"><span data-i18n="common.score">PUNTUACIÓN</span><strong id="score">0</strong></div>
+    </section>
+
+    <section class="panel calculator is-intro" id="calculadora4" data-i18n-aria-label="calc4.title" aria-label="Reto de cálculo 4">
+      <div class="game-overlay" id="intro-overlay">
+        <h2 data-i18n="common.howToPlay">¿Cómo se juega?</h2>
+        <ul class="overlay-rules">
+          <li data-i18n="calc4.rule1">El objetivo puede ser positivo o negativo (50 % de cada) y tiene entre dos y tres decimales, hasta 25.000.000.</li>
+          <li data-i18n="calc.rule2">Usa la calculadora para llegar exactamente a ese número.</li>
+          <li data-i18n="calc.rule3">Puedes encadenar tantas operaciones como quieras.</li>
+          <li data-i18n="calc.rule4">Tienes 10 segundos por ronda: cuantas más operaciones uses, más puntos ganas.</li>
+          <li data-i18n="calc.rule5">Si se acaba el tiempo, pasas a la siguiente ronda sin puntuar esa ronda.</li>
+          <li data-i18n="calc.rule6">Cada partida dura 6 rondas. Al terminar verás tu puntuación total.</li>
+        </ul>
+        <button class="btn btn-primary" id="start-btn" data-i18n="calc.startButton">Empezar reto</button>
+      </div>
+      <div class="panel-top"><span class="brand-mark" aria-hidden="true">+</span><span data-i18n="calc4.title">Reto de cálculo 4</span><span class="status-dot" data-i18n-aria-label="common.inProgress" aria-label="En juego"></span></div>
+      <p class="rounds-indicator" id="rounds-indicator">Ronda 1/6</p>
+      <section class="challenge" data-i18n-aria-label="calc.ariaChallenge" aria-label="Objetivo del reto">
+        <span class="challenge-label" id="challenge-label" data-i18n="calc.challengeLabel">RESULTADO OBJETIVO</span>
+        <strong id="target">—</strong>
+        <div class="timer-track"><div id="timer-bar"></div></div>
+        <p id="countdown" aria-live="off">10</p>
+      </section>
+      <div class="display" aria-live="polite" aria-atomic="true">
+        <div class="expression" id="expression"></div>
+        <output class="result" id="display">0</output>
+      </div>
+      <p class="game-message" id="message" aria-live="polite" data-i18n="calc.readyMessage">¡A por ello!</p>
+      <div class="keys" data-i18n-aria-label="calc.ariaKeys" aria-label="Teclas de la calculadora">
+        <button class="key utility" data-action="clear" data-i18n-aria-label="calc.ariaClear" aria-label="Borrar todo">AC</button>
+        <button class="key utility" data-action="sign" data-i18n-aria-label="calc.ariaSign" aria-label="Cambiar signo">+/−</button>
+        <button class="key utility" data-action="percent" data-i18n-aria-label="calc.ariaPercent" aria-label="Porcentaje">%</button>
+        <button class="key operator" data-operator="÷" data-i18n-aria-label="calc.ariaDivide" aria-label="Dividir">÷</button>
+
+        <button class="key" data-number="7">7</button>
+        <button class="key" data-number="8">8</button>
+        <button class="key" data-number="9">9</button>
+        <button class="key operator" data-operator="×" data-i18n-aria-label="calc.ariaMultiply" aria-label="Multiplicar">×</button>
+
+        <button class="key" data-number="4">4</button>
+        <button class="key" data-number="5">5</button>
+        <button class="key" data-number="6">6</button>
+        <button class="key operator" data-operator="−" data-i18n-aria-label="calc.ariaSubtract" aria-label="Restar">−</button>
+
+        <button class="key" data-number="1">1</button>
+        <button class="key" data-number="2">2</button>
+        <button class="key" data-number="3">3</button>
+        <button class="key operator" data-operator="+" data-i18n-aria-label="calc.ariaAdd" aria-label="Sumar">+</button>
+
+        <button class="key zero" data-number="0">0</button>
+        <button class="key" data-action="decimal" data-i18n-aria-label="calc.ariaDecimal" aria-label="Coma decimal">,</button>
+        <button class="key equals" data-action="equals" data-i18n-aria-label="calc.ariaEquals" aria-label="Igual">=</button>
+      </div>
+      <p class="keyboard-hint" data-i18n="calc.keyboardHint">También puedes usar tu teclado</p>
+    </section>
+  </main>
+  <footer data-i18n="calc.footer">Hecha para que las cuentas fluyan.</footer>
+</body>
+</html>

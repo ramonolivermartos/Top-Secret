@@ -1,0 +1,6 @@
+/* Secuencia millonaria: banda superior de las páginas de juego. */
+.sequence-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 14px; padding: 8px 16px; background: #294533; color: #f4f8f1; font-size: 13px; text-align: center; }
+.sequence-bar strong { letter-spacing: .02em; }
+.sequence-bar span { color: #c7d9c3; }
+.sequence-bar .sequence-warning { flex-basis: 100%; margin: 2px 0 0; color: #ffd9a8; font-weight: 700; }
+.sequence-result { margin: 0; max-width: 420px; color: #294533; font-size: 14px; font-weight: 600; line-height: 1.5; text-align: center; }

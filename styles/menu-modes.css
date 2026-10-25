@@ -1,0 +1,29 @@
+/* Fila de cards del menú: juego aleatorio · progreso · secuencia millonaria. */
+.menu-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; margin-top: 28px; }
+.menu-cards .progress-card { width: auto; margin: 0; }
+.mode-card { display: flex; flex-direction: column; justify-content: space-between; gap: 10px; padding: 18px 20px 20px; background: #fff; border: 1px solid #e9ebe7; border-radius: 18px; box-shadow: 0 20px 50px #303b3012; text-align: left; }
+.mode-card h2 { margin: 0; font-size: 20px; letter-spacing: -.02em; }
+.mode-card p { margin: 0; color: #747a75; font-size: 14px; line-height: 1.6; flex: 1; }
+.mode-card .btn { width: 100%; min-height: 44px; }
+.mode-card-art { display: grid; place-items: center; height: 96px; overflow: hidden; border-radius: 12px; background: linear-gradient(160deg, #f3f7f1, #e5edf9); }
+.mode-card-art > * { transform: scale(.62); }
+.mode-card-dice { font-size: 52px; line-height: 1; }
+.mode-card-art > .mode-card-dice { transform: none; }
+.sequence-notice { margin: 16px 0 0; color: #c9574e; font-size: 14px; font-weight: 600; }
+
+.mode-modal { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: #1f2a2299; overflow-y: auto; }
+.mode-modal-box { display: flex; flex-direction: column; gap: 14px; width: min(100%, 460px); max-height: 100%; overflow-y: auto; padding: 24px; background: #fff; border-radius: 20px; box-shadow: 0 30px 80px #0003; text-align: left; }
+.mode-modal-box h2 { margin: 0; font-size: 22px; letter-spacing: -.02em; }
+.mode-modal-box .overlay-rules { margin: 0; padding-left: 20px; color: #4b524c; font-size: 14px; line-height: 1.6; }
+.mode-modal-box .overlay-rules li + li { margin-top: 8px; }
+.mode-modal-game { display: flex; flex-direction: column; gap: 8px; }
+.mode-modal-game .mode-card-art { height: 140px; }
+.mode-modal-game .mode-card-art > * { transform: none; }
+.mode-modal-game h3 { margin: 0; font-size: 20px; }
+.mode-modal-game p { margin: 0; color: #747a75; font-size: 14px; line-height: 1.6; }
+.mode-modal-box .overlay-actions { justify-content: flex-end; }
+
+@media (max-width: 900px) {
+  .menu-cards { grid-template-columns: 1fr; }
+  .menu-cards .progress-card { order: -1; }
+}

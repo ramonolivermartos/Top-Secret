@@ -1,0 +1,51 @@
+# Main menu and options — English
+
+Locale: `en`. Translated from `ES`, the source language. Keep the keys and every `{{variable}}` and HTML tag unchanged.
+
+```json
+{
+  "menu.titleStart": "Choose your",
+  "menu.titleHighlight": "challenge",
+  "menu.eyebrow": "Minigames that make little sense",
+  "menu.description": "A collection of quick, slightly absurd minigames. Each has its own difficulty, so choose wisely.",
+  "menu.totalScoreLabel": "TOTAL SCORE",
+  "menu.saveStatusSaved": "Progress saved",
+  "menu.saveStatusPending": "Progress not saved",
+  "menu.saveStatusJustSaved": "Progress saved!",
+  "menu.saveButton": "Save progress",
+  "menu.featuredTitle": "Featured for you",
+  "menu.allGamesTitle": "All games",
+  "menu.searchPlaceholder": "Search for a game…",
+  "menu.searchAriaLabel": "Search for a game",
+  "menu.footer": "Made to keep the numbers rolling (or not).",
+  "menu.play": "Play",
+  "menu.comingSoon": "Coming soon",
+  "menu.difficultyLabel": "Difficulty {{value}}/10",
+  "menu.difficultyUnknown": "Difficulty to be revealed",
+  "menu.noResults": "No games match your search.",
+  "menu.langAriaLabel": "Language",
+  "menu.optionsTitle": "Options",
+  "menu.musicType": "Music style",
+  "menu.modeCancel": "Cancel",
+  "menu.modeStart": "Start",
+  "menu.random.title": "Random game",
+  "menu.random.text": "Let chance pick a minigame for you.",
+  "menu.random.play": "Play",
+  "menu.random.modalTitle": "You got:",
+  "menu.sequence.title": "Million Sequence",
+  "menu.sequence.text": "Five minigames in a row. Clear them all for the jackpot.",
+  "menu.sequence.play": "Play",
+  "menu.sequence.abandoned": "You abandoned the previous sequence: 0 points.",
+  "menu.sequence.modalTitle": "Million Sequence",
+  "menu.sequence.rule1": "You will play 5 rounds, each a random minigame at a random difficulty. Games that already have rounds count as a single minigame.",
+  "menu.sequence.rule2": "Clearing a minigame is worth 5,000 points, but you only collect them if you reach the end. In games with rounds you must win them all.",
+  "menu.sequence.rule3": "Complete the sequence and you win 25,000 points (5 × 5,000) plus a 10,000 bonus.",
+  "menu.sequence.rule4": "If you lose a minigame or quit, you get 0 points. Each game's normal points do not count. The music never stops.",
+  "menu.playerAriaLabel": "Player: {{name}}, {{description}}",
+  "menu.pagesLabel": "Game pages",
+  "menu.previous": "Previous",
+  "menu.next": "Next",
+  "menu.page": "Page",
+  "menu.secretsButton": "Secrets"
+}
+```

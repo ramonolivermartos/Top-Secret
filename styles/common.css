@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  color-scheme: light;
+  font-family: 'DM Sans', sans-serif;
+  color: #202421;
+  background: #eaf2ff;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { min-height: 100vh; margin: 0; display: flex; flex-direction: column; }
+a { color: inherit; }
+
+footer { padding: 0 24px 24px; color: #a0a59f; text-align: center; font-size: 12px; }
+
+.text-link { color: #416d49; font-size: 14px; font-weight: 700; text-decoration: none; }
+.text-link span { margin-left: 8px; }
+
+/* ---------- Botones ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 12px; padding: 13px 24px; font: 600 15px 'DM Sans', sans-serif; cursor: pointer; transition: background .15s, transform .12s; }
+.btn:active { transform: scale(.97); }
+.btn-primary { background: #668c68; color: #fff; }
+.btn-primary:hover { background: #557b57; }
+.btn-secondary { background: #f0f4ee; color: #4b5c4c; }
+.btn-secondary:hover { background: #e3e9e0; }
+
+/* ---------- Menú principal ---------- */
+.menu-page { min-height: 100vh; }
+.menu-header { width: min(100% - 48px, 1100px); margin: 0 auto; padding: 28px 0 24px; text-align: center; }
+.menu-header .eyebrow { color: #737b74; font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin: 0 0 18px; }
+.menu-header h1 { font-size: clamp(38px, 6vw, 58px); letter-spacing: -.055em; line-height: 1.05; margin: 0; font-weight: 600; }
+.menu-header h1 span { color: #668c68; }
+.menu-header .description { color: #747a75; font-size: 16px; line-height: 1.7; max-width: 520px; margin: 20px auto 0; }
+
+/* ---------- Selector de idioma ---------- */
+.lang-switch { display: inline-flex; background: #fff; border: 1px solid #e9ebe7; border-radius: 10px; padding: 3px; }
+.options-card { width: min(100%, 360px); margin: 18px auto 0; padding: 20px; background: #fff; border: 1px solid #e9ebe7; border-radius: 18px; box-shadow: 0 20px 50px #303b3012; text-align: left; }
+.options-card summary { min-height: 44px; align-content: center; cursor: pointer; font-size: 18px; font-weight: 700; color: #343a35; }
+.options-card summary:focus-visible { outline: 3px solid #668c68; outline-offset: 4px; border-radius: 4px; }
+.options-content { padding-top: 16px; }
+.options-content .options-select { min-height: 44px; min-width: 0; }
+.option-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; color: #737b74; font-size: 13px; }
+.option-row + .option-row { margin-top: 16px; }
+.options-select { max-width: 100%; padding: 9px; border: 1px solid #dfe4db; border-radius: 8px; background: #f5f6f4; color: #343a35; font: inherit; }
+.lang-btn { border: 0; background: transparent; padding: 6px 12px; border-radius: 7px; font: 700 12px 'DM Sans', sans-serif; letter-spacing: .04em; color: #929991; cursor: pointer; transition: background .15s, color .15s; }
+.lang-btn:hover { color: #557b57; }
+.lang-btn.active { background: #668c68; color: #fff; }
+
+/* ---------- Mensaje de ánimo / felicitación ---------- */
+.flavor-message { min-height: 16px; margin: 4px 0 0; color: #8b9388; text-align: center; font-size: 12px; font-style: italic; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+/* ---------- Progreso / guardado ---------- */
+.progress-card { width: min(100%, 360px); margin: 28px auto 0; background: #fff; border: 1px solid #e9ebe7; border-radius: 18px; padding: 16px 20px 20px; box-shadow: 0 20px 50px #303b3012; text-align: left; }
+.progress-card-top { display: flex; align-items: center; justify-content: space-between; font-size: 10px; font-weight: 700; letter-spacing: .1em; color: #929991; }
+.save-status { color: #a0a59f; }
+.save-status.pending { color: #c9874e; }
+.progress-numbers { display: flex; align-items: baseline; gap: 6px; margin-top: 8px; font: 500 22px 'DM Mono', monospace; color: #202421; }
+.progress-numbers span { font-size: 14px; color: #929991; }
+.progress-track { height: 8px; margin-top: 10px; border-radius: 8px; overflow: hidden; background: #e5e9e2; }
+#score-bar { height: 100%; width: 0%; border-radius: inherit; background: #69a86d; transition: width .3s ease; }
+.progress-card .btn { width: 100%; margin-top: 14px; }
+.progress-card .btn:disabled { background: #eef1ec; color: #b1b6ac; cursor: not-allowed; }
+
+.menu-main { width: min(100% - 48px, 1100px); margin: 0 auto 60px; }
+.section-title { font-size: 20px; letter-spacing: -.02em; margin: 0 0 18px; }
+.featured-section { margin-bottom: 48px; }
+
+.games-grid { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+
+.game-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e9ebe7; border-radius: 22px; overflow: hidden; box-shadow: 0 24px 70px #303b3012; text-decoration: none; transition: transform .18s, box-shadow .18s; }
+.game-card:hover { transform: translateY(-4px); box-shadow: 0 30px 80px #303b3020; }
+
+.card-illustration { position: relative; height: 180px; background: linear-gradient(160deg, #f3f7f1, #e5edf9); display: grid; place-items: center; overflow: hidden; }
+
+.card-body { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card-body h2 { margin: 0; font-size: 21px; letter-spacing: -.02em; }
+.card-body p { margin: 0; color: #747a75; font-size: 14px; line-height: 1.6; flex: 1; }
+
+.difficulty { display: flex; align-items: center; gap: 10px; }
+.difficulty-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: #929991; text-transform: uppercase; }
+.difficulty-dots { display: flex; gap: 4px; }
+.difficulty-dots i { width: 7px; height: 7px; border-radius: 50%; background: #e2e6e0; }
+.difficulty-dots i.filled { background: #668c68; }
+
+.card-cta { margin-top: 6px; display: inline-flex; align-items: center; gap: 8px; color: #416d49; font-size: 14px; font-weight: 700; }
+.card-cta span { transition: transform .15s; }
+.game-card:hover .card-cta span { transform: translateX(3px); }
+.card-cta.locked-cta { color: #a7ac9f; }
+
+.game-card.locked { cursor: default; opacity: .85; }
+.game-card.locked:hover { transform: none; box-shadow: 0 24px 70px #303b3012; }
+
+.illustration-soon { width: 96px; height: 96px; border-radius: 50%; background: #eef1ec; display: grid; place-items: center; color: #a7ac9f; font: 700 34px 'DM Mono', monospace; }
+
+/* Ilustración calculadora */
+.illustration-calc { width: 108px; height: 132px; background: #fff; border: 1px solid #e3e7e1; border-radius: 16px; box-shadow: 0 14px 30px #30362a1a; padding: 10px; display: grid; grid-template-rows: 26px repeat(4, 1fr); gap: 6px; }
+.illustration-calc .calc-screen { background: #f3f6f1; border-radius: 6px; }
+.illustration-calc .calc-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+.illustration-calc .calc-row span { border-radius: 4px; background: #edf1ea; }
+.illustration-calc .calc-row span.op { background: #d7e6d8; }
+.illustration-calc .calc-row span.eq { background: #668c68; grid-column: span 2; }
+
+/* Ilustración snake */
+.illustration-snake { position: relative; width: 140px; height: 140px; }
+.illustration-snake .seg { position: absolute; width: 20px; height: 20px; border-radius: 6px; background: #69a86d; }
+.illustration-snake .seg.head { background: #4c7a4f; }
+.illustration-snake .seg.head::after, .illustration-snake .seg.head::before { content: ''; position: absolute; width: 3px; height: 3px; top: 6px; border-radius: 50%; background: #eaf2ff; }
+.illustration-snake .seg.head::before { left: 4px; }
+.illustration-snake .seg.head::after { right: 4px; }
+.illustration-snake .apple { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #d9564d; box-shadow: 0 0 0 3px #fff6; }
+.illustration-snake .bug { position: absolute; width: 10px; height: 10px; border-radius: 3px; background: #3b3f3a; }
+
+/* ---------- Página de juego (layout compartido) ---------- */
+.game-page { min-height: 100vh; }
+.layout { width: min(100% - 48px, 1000px); margin: auto; padding: 40px 0; display: grid; grid-template-columns: 1fr 380px; gap: 100px; align-items: center; }
+.intro { max-width: 440px; }
+.eyebrow { color: #737b74; font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin: 0 0 22px; }
+h1 { font-size: clamp(42px, 6vw, 66px); letter-spacing: -.065em; line-height: 1.04; margin: 0; font-weight: 600; }
+h1 span { color: #668c68; }
+.description { color: #747a75; font-size: 16px; line-height: 1.75; max-width: 350px; margin: 24px 0 28px; }
+
+.panel { position: relative; background: #fff; border: 1px solid #e9ebe7; border-radius: 22px; padding: 18px; box-shadow: 0 24px 70px #303b3012; }
+.score-card { display: inline-flex; align-items: center; gap: 18px; margin-top: 12px; padding: 12px 16px; border-radius: 12px; background: #fff; color: #668c68; }
+.score-card span, .challenge-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+.score-card strong { font: 500 22px 'DM Mono', monospace; }
+.panel-top { display: flex; align-items: center; gap: 10px; color: #929991; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+.rounds-indicator { margin: 10px 0 0; color: #929991; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.brand-mark { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 8px; background: #eaf1e8; color: #547a56; font-size: 17px; }
+.status-dot { width: 7px; height: 7px; margin-left: auto; border-radius: 50%; background: #77ae78; }
+.challenge { margin-top: 12px; padding: 10px 16px 5px; border-radius: 15px; background: #f6f8f5; text-align: center; }
+.challenge-label { color: #929991; }
+.challenge > strong { display: block; margin: 0 0 5px; font: 500 32px 'DM Mono', monospace; }
+.challenge.intermission > strong { margin: 5px 0; color: #668c68; font-size: 52px; }
+.timer-track { height: 7px; overflow: hidden; border-radius: 8px; background: #e5e9e2; }
+#timer-bar { width: 100%; height: 100%; border-radius: inherit; background: #69a86d; transition: width .1s linear, background .2s; }
+#timer-bar.warning { background: #e3b940; }
+#timer-bar.danger { background: #df6259; }
+#countdown { margin: 5px 0 0; color: #668c68; font: 500 14px 'DM Mono', monospace; }
+.game-message { min-height: 20px; margin: 13px 0 0; color: #737b74; text-align: center; font-size: 13px; font-weight: 600; }
+.game-message.success { color: #4f8b55; }
+.game-message.failure { color: #c9574e; }
+.keyboard-hint { color: #a0a59f; text-align: center; font-size: 11px; margin: 10px 0 0; }
+
+.back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 18px; }
+.back-link .back-arrow { transform: rotate(180deg); display: inline-block; }
+
+/* ---------- Overlay de explicación ---------- */
+.game-overlay { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; justify-content: center; background: #fcfdfbf2; backdrop-filter: blur(3px); border-radius: inherit; padding: 28px; text-align: center; gap: 14px; }
+.game-overlay h2 { margin: 0; font-size: 22px; letter-spacing: -.02em; }
+.game-overlay .overlay-rules { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; text-align: left; }
+.game-overlay .overlay-rules li { position: relative; padding-left: 18px; color: #4b5650; font-size: 13.5px; line-height: 1.5; }
+.game-overlay .overlay-rules li::before { content: '•'; position: absolute; left: 0; top: 0; color: #668c68; font-weight: 700; }
+.game-overlay .btn { margin-top: 10px; align-self: center; }
+.panel.is-intro .score-card,
+.panel.is-intro .challenge,
+.panel.is-intro .display,
+.panel.is-intro .keys,
+.panel.is-intro .board-wrap,
+.panel.is-intro .game-message,
+.panel.is-intro .rounds-indicator,
+.panel.is-intro .keyboard-hint { visibility: hidden; }
+
+/* ---------- Buscador y lista de juegos ---------- */
+.games-search { display: block; width: 100%; max-width: 420px; margin-bottom: 20px; padding: 12px 16px; border: 1px solid #e3e7e1; border-radius: 12px; background: #fff; font: 14px 'DM Sans', sans-serif; color: #202421; }
+.games-search:focus { outline: 2px solid #668c68; outline-offset: 1px; }
+.games-search::placeholder { color: #a0a59f; }
+
+.games-list { display: flex; flex-direction: column; gap: 12px; }
+.list-item { display: flex; align-items: center; gap: 18px; background: #fff; border: 1px solid #e9ebe7; border-radius: 16px; padding: 12px 18px; text-decoration: none; transition: transform .15s, box-shadow .15s; }
+.list-item:not(.locked):hover { transform: translateY(-2px); box-shadow: 0 16px 40px #303b3014; }
+.list-item.locked { opacity: .8; cursor: default; }
+
+.list-thumb { flex: none; width: 72px; height: 72px; border-radius: 12px; background: linear-gradient(160deg, #f3f7f1, #e5edf9); display: grid; place-items: center; overflow: hidden; }
+.list-thumb .illustration-calc,
+.list-thumb .illustration-snake { transform: scale(.42); }
+.list-thumb .illustration-soon { width: 48px; height: 48px; font-size: 20px; }
+
+.list-body { flex: 1; min-width: 0; }
+.list-body h3 { margin: 0 0 4px; font-size: 16px; letter-spacing: -.01em; }
+.list-body p { margin: 0; color: #747a75; font-size: 13px; line-height: 1.5; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+.list-meta { flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.list-empty { color: #929991; font-size: 14px; padding: 20px 0; }
+
+/* ---------- Acciones del overlay de fin de partida ---------- */
+.overlay-actions { display: flex; gap: 12px; justify-content: center; margin-top: 10px; }
+
+/* ---------- Aviso de "salir con ESC" ---------- */
+.quit-confirm-overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; background: #20242199; backdrop-filter: blur(2px); padding: 20px; }
+.quit-confirm-box { background: #fff; border-radius: 20px; padding: 28px; max-width: 360px; width: 100%; text-align: center; box-shadow: 0 30px 80px #00000055; }
+.quit-confirm-box h2 { margin: 0 0 10px; font-size: 20px; letter-spacing: -.02em; }
+.quit-confirm-score-label { margin: 0 0 6px; color: #4b5650; font-size: 14px; }
+.quit-confirm-score-label strong { font: 500 18px 'DM Mono', monospace; color: #668c68; }
+.quit-confirm-warning { margin: 0; color: #c9574e; font-size: 13px; }
+.quit-confirm-box .overlay-actions { margin-top: 16px; }
+
+/* ---------- Foco visible para navegar sin ratón ---------- */
+.game-card:focus-visible,
+.list-item:focus-visible,
+.lang-btn:focus-visible,
+.options-select:focus-visible,
+.btn:focus-visible,
+.games-search:focus-visible { outline: 2px solid #668c68; outline-offset: 3px; }
+
+@media (max-width: 760px) {
+  .layout { width: min(100% - 36px, 420px); padding: 32px 0 24px; grid-template-columns: 1fr; gap: 22px; }
+  .intro { text-align: center; margin: 0 auto; }
+  .eyebrow { margin-bottom: 14px; }
+  h1 { font-size: clamp(42px, 12vw, 58px); }
+  .description { margin: 16px auto 18px; font-size: 14px; }
+  .panel { padding: 16px; }
+  .menu-header { padding: 40px 0 18px; }
+  .list-item { flex-wrap: wrap; }
+  .list-meta { flex-direction: row; width: 100%; justify-content: space-between; }
+}
+.difficulty-debug {
+  position: relative;
+  z-index: 6;
+  margin: 0 0 12px;
+  padding: 6px 10px;
+  color: #c01818;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  pointer-events: none;
+}
+.games-pagination { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+.games-pagination[hidden] { display: none; }
+.games-pagination button:disabled { opacity: .45; cursor: default; }
+#games-page-status { font-size: 14px; font-variant-numeric: tabular-nums; }
+/* Identidad del jugador (Directives/Welcome_Setup.md): esquina superior izquierda del menú, junto a Opciones. */
+.menu-topbar { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; width: min(100% - 32px, 1100px); margin: 0 auto; padding: calc(16px + env(safe-area-inset-top, 0px)) 0 0; }
+.player-badge { z-index: 2; display: flex; flex-direction: column; gap: 2px; max-width: min(60vw, 280px); padding: 8px 14px 9px; border: 1px solid #e1e7dc; border-radius: 12px; background: #fffc; text-align: left; }
+.player-badge[hidden] { display: none; }
+.player-badge .player-name { font-size: 17px; font-weight: 700; letter-spacing: -.02em; color: #294533; overflow-wrap: anywhere; }
+.player-badge .player-description { font: 500 11px 'DM Mono', monospace; letter-spacing: .02em; color: #668c68; }
+.menu-topbar .options-card { position: relative; z-index: 3; width: auto; margin: 0; padding: 0 16px; border-radius: 12px; box-shadow: none; }
+.menu-topbar .options-card summary { font-size: 15px; }
+/* Botón de la pantalla de Secretos, a la derecha de Opciones y con el mismo aspecto. */
+.topbar-link { display: inline-flex; align-items: center; min-height: 46px; padding: 0 16px; border: 1px solid #e9ebe7; border-radius: 12px; background: #fff; color: #343a35; font-size: 15px; font-weight: 700; text-decoration: none; }
+.topbar-link:hover { color: #416d49; }
+.topbar-link:focus-visible { outline: 3px solid #668c68; outline-offset: 4px; }
+.menu-topbar .options-content { position: absolute; top: calc(100% + 8px); left: 0; z-index: 4; width: min(320px, calc(100vw - 32px)); padding: 16px; background: #fff; border: 1px solid #e9ebe7; border-radius: 14px; box-shadow: 0 20px 50px #303b3022; }

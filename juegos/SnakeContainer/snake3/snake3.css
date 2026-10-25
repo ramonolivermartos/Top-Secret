@@ -1,0 +1,7 @@
+.board-wrap { display: flex; justify-content: center; margin-top: 12px; }
+#board { width: 100%; max-width: 380px; aspect-ratio: 1 / 1; border-radius: 16px; background: #f6f8f5; border: 1px solid #e5e9e2; }
+#length { color: #668c68; font-weight: 700; }
+
+@media (max-width: 760px) {
+  #board { max-width: 320px; }
+}

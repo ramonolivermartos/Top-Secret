@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f5f7">
+  <title data-i18n="games.tetrareplica.title">Réplica de bloques</title>
+  <link rel="stylesheet" href="../../../styles/common.css">
+  <link rel="stylesheet" href="../../../styles/sequence.css">
+  <link rel="stylesheet" href="../../../styles/secrets.css">
+  <link rel="stylesheet" href="tetrareplica.css">
+  <script src="../../../scripts/storage.js" defer></script>
+  <script src="../../../scripts/sequence.js" defer></script>
+  <script src="../../../scripts/localization-data.js" defer></script>
+  <script src="../../../scripts/i18n.js" defer></script>
+  <script src="../../../scripts/music-data.js" defer></script>
+  <script src="../../../scripts/audio.js" defer></script>
+  <script src="../../../scripts/messages-data.js" defer></script>
+  <script src="../../../scripts/quit-confirm.js" defer></script>
+  <script src="../../../scripts/secrets-data.js" defer></script>
+  <script src="../../../scripts/secrets.js" defer></script>
+  <script src="tetrareplica-core.js" defer></script>
+  <script src="../../../debug/difficulty-debug.js" defer></script>
+  <script src="tetrareplica.js" defer></script>
+</head>
+<body class="game-page tetra-page">
+  <main class="layout">
+    <section class="intro" aria-labelledby="page-title">
+      <a class="text-link back-link" href="../../../index.html"><span class="back-arrow">→</span> <span data-i18n="common.backToMenu">Volver al menú</span></a>
+      <p class="eyebrow" data-i18n="tetrareplica.eyebrow">Copia la figura sin cometer ni un error</p>
+      <h1 id="page-title"><span data-i18n="tetrareplica.titleLine1">Réplica</span><br><span data-i18n="tetrareplica.titleLine2">de bloques.</span></h1>
+      <p class="description" data-i18n="tetrareplica.description">A la izquierda tienes una figura escalonada hecha con piezas de Tetris. A la derecha caen piezas: constrúyela igual, en el mismo sitio. Una pieza que estropee la figura acaba la partida.</p>
+      <div class="score-card" aria-live="polite"><span data-i18n="common.score">PUNTUACIÓN</span><strong id="score">0</strong></div>
+    </section>
+
+    <section class="panel tetra-panel is-intro" id="tetra-game" data-i18n-aria-label="tetrareplica.ariaPanel" aria-label="Réplica de bloques">
+      <div class="game-overlay" id="intro-overlay">
+        <h2 data-i18n="common.howToPlay">¿Cómo se juega?</h2>
+        <ul class="overlay-rules">
+          <li id="rule-preview" data-i18n="tetrareplica.rulePreview">Antes de empezar tienes 20 segundos para memorizar la figura de la izquierda. Después empiezan a caer las piezas.</li>
+          <li data-i18n="tetrareplica.rule1">Cae una pieza nueva cada 3,5 segundos. Mueve con las flechas o WASD: ←/→ o A/D desplazan, ↓ o S bajan y ↑ o W giran la pieza.</li>
+          <li data-i18n="tetrareplica.rule2">Pulsa K para eliminar la pieza que lleva más tiempo cayendo y no amontonar piezas.</li>
+          <li data-i18n="tetrareplica.rule3">No hay líneas que se borren: las piezas colocadas se quedan. Gana quien deje la misma figura, aunque la haya montado con otras piezas.</li>
+          <li data-i18n="tetrareplica.rule4">Si colocas una pieza que ya no permite completar la figura, pierdes en ese momento.</li>
+          <li data-i18n-html="tetrareplica.rule5html">Sumas <strong>70 puntos cada 32 segundos</strong> mientras juegas. Si ganas, +150 puntos. Si pierdes, no te llevas ningún punto.</li>
+        </ul>
+        <button class="btn btn-primary" id="start-btn" data-i18n="tetrareplica.startButton">Empezar partida</button>
+      </div>
+      <div class="panel-top"><span class="brand-mark" aria-hidden="true">▦</span><span data-i18n="tetrareplica.brandLabel">RÉPLICA DE BLOQUES</span><span class="status-dot" data-i18n-aria-label="common.inProgress" aria-label="En juego"></span></div>
+      <div class="tetra-preview" id="preview" style="display:none">
+        <p id="preview-text" role="status" data-i18n="tetrareplica.previewMessage">Memoriza la figura de la izquierda: las piezas empezarán a caer en cuanto se acabe el tiempo.</p>
+        <strong id="preview-count" aria-hidden="true"></strong>
+      </div>
+      <section class="challenge" data-i18n-aria-label="tetrareplica.ariaChallenge" aria-label="Progreso de la figura">
+        <span class="challenge-label" data-i18n="tetrareplica.timeLabel">TIEMPO</span>
+        <strong id="target">0:00</strong>
+        <div class="timer-track"><div id="timer-bar"></div></div>
+        <p id="countdown" aria-live="off"><span data-i18n="tetrareplica.cellsPrefix">Casillas:</span> <span id="filled">0</span> / <span id="total">0</span></p>
+      </section>
+      <div class="board-wrap tetra-wrap">
+        <div class="tetra-boards">
+          <figure class="tetra-side">
+            <figcaption id="target-caption"></figcaption>
+            <canvas id="target-board" width="440" height="308" data-i18n-aria-label="tetrareplica.ariaTarget" aria-label="Figura objetivo"></canvas>
+          </figure>
+          <figure class="tetra-side">
+            <figcaption data-i18n="tetrareplica.boardCaption">Tu figura</figcaption>
+            <canvas id="board" width="440" height="528" data-i18n-aria-label="tetrareplica.ariaBoard" aria-label="Tablero de juego"></canvas>
+          </figure>
+        </div>
+        <div class="tetra-controls" role="group" data-i18n-aria-label="tetrareplica.ariaControls" aria-label="Controles táctiles">
+          <button type="button" class="btn btn-secondary" data-action="left" data-i18n-aria-label="tetrareplica.left" aria-label="Mover a la izquierda">◀</button>
+          <button type="button" class="btn btn-secondary" data-action="rotate" data-i18n-aria-label="tetrareplica.rotate" aria-label="Girar">⟳</button>
+          <button type="button" class="btn btn-secondary" data-action="down" data-i18n-aria-label="tetrareplica.down" aria-label="Bajar">▼</button>
+          <button type="button" class="btn btn-secondary" data-action="right" data-i18n-aria-label="tetrareplica.right" aria-label="Mover a la derecha">▶</button>
+          <button type="button" class="btn btn-secondary" data-action="discard" data-i18n-aria-label="tetrareplica.discard" aria-label="Eliminar pieza">K ✕</button>
+        </div>
+      </div>
+      <p class="game-message" id="message" aria-live="polite" data-i18n="tetrareplica.readyMessage">¡Copia la figura!</p>
+      <p class="keyboard-hint" data-i18n="tetrareplica.keyboardHint">↑/W giran · ←/→ y A/D mueven · K elimina la pieza más antigua</p>
+    </section>
+  </main>
+  <footer data-i18n="tetrareplica.footer">Hecha para encajar sin sentido.</footer>
+</body>
+</html>

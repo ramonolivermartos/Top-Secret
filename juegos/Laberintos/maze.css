@@ -1,0 +1,20 @@
+.maze-layout { align-items: start; }
+.maze-instructions { margin-top: 24px; line-height: 1.65; color: #526052; }
+.maze-instructions h2 { font-size: 22px; color: #294533; }
+.maze-panel { max-width: 650px; width: 100%; }
+#maze-board { display: block; width: 100%; height: auto; background: #f6f8f3; border-radius: 8px; }
+#maze-cover { aspect-ratio: 1; display: grid; place-items: center; padding: 32px; text-align: center; background: #edf2e8; border-radius: 8px; color: #526052; }
+.maze-panel #maze-cover[hidden], .maze-panel #maze-board[hidden] { display: none; }
+.maze-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; margin: 12px 0; color: #53634f; }
+#maze-timer { font-variant-numeric: tabular-nums; font-size: 24px; }
+#maze-timer.urgent { color: #bc2525; }
+#maze-message { min-height: 3em; margin: 18px 0 8px; text-align: center; }
+.maze-actions, .maze-controls { display: flex; justify-content: center; gap: 10px; }
+.maze-controls { margin-top: 16px; }
+.maze-controls button { min-width: 48px; touch-action: manipulation; }
+.maze-panel [hidden] { display: none; }
+.maze-panel.is-paused #maze-board { visibility: hidden; }
+#maze-pause-overlay { background: #fcfdfb; }
+.maze-panel .panel-top strong:not(#maze-timer) { font-variant-numeric: tabular-nums; }
+.maze-hint-dot { font-style: normal; color: #1cc8e0; }
+#maze-end-overlay p { margin: 0; }

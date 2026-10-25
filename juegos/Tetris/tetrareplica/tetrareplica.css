@@ -1,0 +1,55 @@
+/* Pantalla de juego grande: el tablero ocupa casi toda la altura visible; la cabecera se reduce. */
+.tetra-page .layout { grid-template-columns: minmax(0, 1fr); width: min(100% - 32px, 1160px); gap: 10px; padding: 14px 0 18px; align-items: start; }
+.tetra-page .intro { max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: 24px; }
+.tetra-page .intro .back-link { grid-column: 1 / -1; }
+.tetra-page .intro .eyebrow, .tetra-page .intro .description { display: none; }
+.tetra-page h1 { grid-column: 1; margin: 2px 0 0; font-size: clamp(24px, 3.2vw, 36px); line-height: 1.1; }
+.tetra-page h1 br { display: none; }
+.tetra-page h1 br + span { margin-left: .25em; }
+.tetra-page .score-card { margin: 0; align-self: end; }
+.tetra-page .panel { padding: 14px 16px 12px; --board-h: clamp(300px, calc(100vh - 250px), 820px); }
+.tetra-page .panel-top { display: none; }
+.tetra-page .panel .difficulty-debug { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); margin: 0; padding: 1px 10px; background: #ffffffd9; border-radius: 8px; font-size: 12px; }
+.tetra-page .challenge { display: flex; align-items: center; gap: 12px; margin-top: 18px; padding: 6px 14px; }
+.tetra-page .challenge > strong { margin: 0; font-size: 20px; }
+.tetra-page .challenge .timer-track { flex: 1; margin: 0; }
+.tetra-page .challenge #countdown { margin: 0; white-space: nowrap; }
+.tetra-page .game-message { margin-top: 8px; }
+.tetra-page .keyboard-hint { margin-top: 6px; }
+
+.tetra-preview { margin: 8px 0 0; padding: 8px 14px; border-radius: 12px; background: #eef4ec; border: 1px solid #c9dcc6; text-align: center; }
+.tetra-preview p { margin: 0 0 2px; font-weight: 600; color: #2f3a30; }
+.tetra-preview strong { display: block; font-size: 22px; color: #668c68; font-variant-numeric: tabular-nums; }
+
+.tetra-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 8px; }
+.tetra-boards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: end; width: 100%; max-width: calc(var(--board-h) * 10 / 12 * 2 + 14px); }
+.tetra-side { margin: 0; min-width: 0; }
+.tetra-side figcaption { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #668c68; text-align: center; margin-bottom: 4px; min-height: 1.2em; }
+.tetra-side canvas { display: block; width: 100%; height: auto; border-radius: 12px; background: #f6f8f5; border: 1px solid #e5e9e2; }
+#filled { color: #668c68; font-weight: 700; }
+
+.tetra-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.tetra-controls .btn { min-width: 48px; min-height: 48px; padding: 8px 14px; touch-action: manipulation; }
+
+@media (max-width: 760px) {
+  .tetra-page .layout { width: min(100% - 20px, 760px); }
+  .tetra-page .intro { text-align: left; }
+  .tetra-page .panel { padding: 10px; --board-h: clamp(240px, calc(100vh - 330px), 640px); }
+  .tetra-boards { gap: 8px; max-width: none; }
+  .tetra-side figcaption { font-size: 10px; }
+}
+
+/* Con ratón y teclado los botones táctiles sobran: se ocultan para dar el alto al tablero. */
+@media (hover: hover) and (pointer: fine) {
+  .tetra-page .tetra-controls { display: none; }
+}
+@media (hover: hover) and (pointer: fine) and (max-height: 900px) {
+  .tetra-page .keyboard-hint { display: none; }
+}
+
+/* Pantallas bajas y apaisadas: ocultar lo accesorio para que el tablero ocupe el alto. */
+@media (max-height: 640px) and (orientation: landscape) {
+  .tetra-page .intro .back-link { display: none; }
+  .tetra-page .panel { --board-h: clamp(220px, calc(100vh - 210px), 780px); }
+  .tetra-page .keyboard-hint { display: none; }
+}

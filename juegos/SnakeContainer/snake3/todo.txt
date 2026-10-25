@@ -1,0 +1,1 @@
+ahora los bichos no restan eslabones, restan tiempo, entre 2 y 4 segundos, elresto sigue igual que en snake

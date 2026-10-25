@@ -1,0 +1,128 @@
+/* Francotirador: layout ancho (el visor es 16:9) con la columna de datos al lado. */
+.sniper-page .layout { grid-template-columns: minmax(0, 1fr); width: min(100% - 32px, 1160px); gap: 18px; padding: 24px 0; align-items: start; }
+.sniper-page .intro { max-width: none; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: end; column-gap: 28px; }
+.sniper-page .intro .back-link,
+.sniper-page .intro .eyebrow { grid-column: 1 / -1; }
+.sniper-page .intro .eyebrow { margin-bottom: 8px; }
+.sniper-page h1 { font-size: clamp(36px, 5vw, 52px); }
+.sniper-page .description { max-width: 520px; margin: 0; font-size: 14px; line-height: 1.6; }
+.sniper-page .score-card { margin: 0; align-self: end; grid-column: 3; }
+.sniper-page h1 { grid-column: 1; }
+.score-goal { font: 500 12px 'DM Mono', monospace; letter-spacing: 0; color: #929991; }
+.score-goal #goal { font-weight: 700; }
+
+.sniper-panel { min-height: 320px; outline: none; }
+.sniper-panel .rounds-indicator { margin: 8px 0 10px; }
+.sniper-panel .difficulty-debug { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); margin: 0; padding: 2px 10px; background: #ffffffd9; border-radius: 8px; font-size: 12px; }
+
+.sniper-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 0; }
+.sniper-top { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 10px; align-items: stretch; }
+
+/* ---------- Visor ---------- */
+.sniper-stage { position: relative; width: min(100%, calc((100vh - 430px) * 16 / 9)); min-width: min(100%, 620px); aspect-ratio: 16 / 9; margin: 0 auto; overflow: hidden; border-radius: 16px; background: #cfd9d2; box-shadow: inset 0 0 0 1px #0000001a, 0 10px 30px #303b3026; isolation: isolate; user-select: none; }
+.sniper-stage.is-aiming { cursor: none; }
+.sniper-stage.is-kick { animation: sniper-kick .18s ease-out; }
+@keyframes sniper-kick { 0% { transform: translate(0, 0); } 25% { transform: translate(-3px, 4px); } 60% { transform: translate(2px, -2px); } 100% { transform: translate(0, 0); } }
+.sniper-stage canvas#scope { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; display: block; touch-action: none; outline: none; }
+
+/* ---------- Paisaje (masas low poly con desenfoque, generadas por ronda) ---------- */
+.sniper-scene { position: absolute; inset: 0; z-index: 1; overflow: hidden; background: linear-gradient(180deg, var(--sky-top, #cfe6e3) 0%, var(--sky-bottom, #eef5ef) 58%, var(--haze, #e6efe4) 100%); }
+.sniper-scene .mass { position: absolute; will-change: auto; }
+.sniper-scene::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 55%, #00000026 100%); pointer-events: none; }
+
+/* ---------- Reloj, barras ---------- */
+.sniper-clock { position: absolute; z-index: 3; top: 8px; left: 50%; transform: translateX(-50%); min-width: 76px; padding: 4px 14px; border-radius: 12px; background: #1b231dc2; color: #fff; text-align: center; font: 500 26px 'DM Mono', monospace; letter-spacing: .02em; pointer-events: none; transition: opacity .2s; }
+.sniper-clock.is-flying { opacity: .4; }
+.sniper-clock.is-low { background: #b4352dd9; }
+.sniper-clock.is-low.is-blink { animation: sniper-blink 1s steps(2, jump-none) infinite; }
+@keyframes sniper-blink { 0% { opacity: 1; } 50% { opacity: .55; } 100% { opacity: 1; } }
+
+.sniper-bottom { position: absolute; z-index: 3; left: 50%; bottom: 10px; width: min(62%, 480px); transform: translateX(-50%); display: grid; gap: 6px; pointer-events: none; }
+.sniper-conc-label { margin: 0; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .08em; color: #fff; text-shadow: 0 1px 3px #000a; }
+.sniper-flight { height: 5px; border-radius: 4px; background: #1b231d59; overflow: hidden; opacity: 0; transition: opacity .15s; }
+.sniper-flight.is-on { opacity: 1; }
+.sniper-flight i { display: block; height: 100%; width: 0; background: #fff; }
+.sniper-conc { position: relative; height: 22px; border-radius: 12px; background: #1b231dc2; }
+.sniper-conc-sweet { position: absolute; left: 44%; right: 44%; top: 3px; bottom: 3px; border-radius: 8px; background: #69a86d66; }
+.sniper-conc b { position: absolute; top: 3px; bottom: 3px; width: 4px; margin-left: -2px; border-radius: 3px; background: #fff; left: 50%; }
+.sniper-conc span { position: absolute; right: -52px; top: 1px; font: 500 14px 'DM Mono', monospace; color: #1b231d; background: #ffffffd9; padding: 0 6px; border-radius: 8px; }
+.sniper-conc.is-frozen b { background: #ce9233; }
+
+/* ---------- Columna de datos ---------- */
+.sniper-last, .sniper-hud { padding: 12px 14px; border-radius: 14px; background: #1b231d; color: #eef3ec; }
+.sniper-last p { margin: 0; }
+.sniper-last-title { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #9db59f; }
+.sniper-last-total { margin-top: 2px !important; font-size: 12px; color: #c9d5c8; }
+.sniper-last-total strong { font: 500 20px 'DM Mono', monospace; color: #fff; }
+.sniper-last-detail { margin: 6px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 12px; font: 500 11px 'DM Mono', monospace; }
+.sniper-last-detail[hidden] { display: none; }
+.sniper-last-detail div { display: flex; justify-content: space-between; gap: 8px; }
+.sniper-last-detail dt { color: #9db59f; font-family: 'DM Sans', sans-serif; }
+.sniper-last-detail dd { margin: 0; }
+.sniper-last-detail .is-points { grid-column: 1 / -1; }
+.sniper-last-detail .is-points dd { color: #f2c35c; font-size: 13px; }
+
+.sniper-hud { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 14px; }
+.sniper-hud dl { width: 100%; margin: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px 14px; font-size: 11px; }
+.sniper-hud dl div { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.sniper-hud dt { color: #9db59f; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; font-size: 9.5px; }
+.sniper-hud dd { margin: 0; font: 500 12px 'DM Mono', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sniper-hud canvas { width: 84px; height: 84px; }
+.sniper-air { display: inline-block; width: 60px; height: 7px; border-radius: 5px; background: #ffffff26; overflow: hidden; vertical-align: middle; }
+.sniper-air i { display: block; height: 100%; width: 100%; background: #77c3e6; transition: background .15s; }
+.sniper-air i.is-exhausted { background: #df6259; }
+.sniper-heart { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #df6259; vertical-align: -1px; }
+.sniper-heart.is-beat { animation: sniper-beat .28s ease-out; }
+@keyframes sniper-beat { 0% { transform: scale(1.5); } 100% { transform: scale(1); } }
+
+/* ---------- Tres pasos siempre visibles ---------- */
+.sniper-steps { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.sniper-steps li { padding: 8px 10px; border-radius: 10px; background: #f0f4ee; color: #4b5c4c; font-size: 12px; font-weight: 600; line-height: 1.35; text-align: center; }
+
+/* ---------- Guía de tiro (card grande con X) ---------- */
+.sniper-tutorial { position: fixed; inset: 0; z-index: 90; display: none; align-items: center; justify-content: center; padding: 20px; background: #20242199; backdrop-filter: blur(3px); }
+.sniper-tutorial-card { position: relative; display: flex; flex-direction: column; width: min(100%, 860px); max-height: min(100%, 780px); padding: 28px 30px 22px; border-radius: 22px; background: #fff; box-shadow: 0 30px 80px #00000055; }
+.sniper-tutorial-card header { padding-right: 44px; }
+.sniper-tutorial-card .eyebrow { margin-bottom: 6px; }
+.sniper-tutorial-card h2 { margin: 0; font-size: 28px; letter-spacing: -.03em; }
+.sniper-tutorial-lead { margin: 8px 0 14px; color: #747a75; font-size: 14px; line-height: 1.6; }
+.sniper-tutorial-close { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border: 0; border-radius: 12px; background: #f0f4ee; color: #4b5c4c; font: 700 16px 'DM Sans', sans-serif; cursor: pointer; }
+.sniper-tutorial-close:hover { background: #e3e9e0; }
+.sniper-tutorial-close:focus-visible,
+.sniper-tutorial-body:focus-visible { outline: 3px solid #668c68; outline-offset: 2px; }
+.sniper-tutorial-body { overflow-y: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px; padding: 4px 6px 6px 0; }
+.sniper-tutorial-body section { padding: 12px 14px; border-radius: 14px; background: #f6f8f5; }
+.sniper-tutorial-body section.sniper-basic { grid-column: 1 / -1; background: #e9f2e7; }
+.sniper-tutorial-body section.sniper-basic h3 { font-size: 17px; }
+.sniper-basic ol { margin: 0 0 8px; padding-left: 22px; display: grid; gap: 8px; }
+.sniper-basic li { color: #2f3a30; font-size: 14.5px; line-height: 1.5; }
+.sniper-basic li::marker { color: #416d49; font-weight: 700; }
+.sniper-tutorial-body section:last-child { grid-column: 1 / -1; }
+.sniper-tutorial-body h3 { margin: 0 0 6px; font-size: 14px; letter-spacing: -.01em; color: #416d49; }
+.sniper-tutorial-body p { margin: 0 0 6px; color: #4b5650; font-size: 13px; line-height: 1.55; }
+.sniper-tutorial-body p:last-child { margin-bottom: 0; }
+
+/* ---------- Pantallas de ronda y final ---------- */
+.sniper-verdict { margin: 0; font: 500 15px 'DM Mono', monospace; color: #202421; }
+.sniper-verdict.is-win { color: #4f8b55; }
+.sniper-verdict.is-lose { color: #c9574e; }
+
+@media (max-height: 900px) {
+  .sniper-page .intro .eyebrow, .sniper-page .intro .description { display: none; }
+  .sniper-page .intro { row-gap: 0; }
+}
+
+@media (max-width: 980px) {
+  .sniper-top { grid-template-columns: minmax(0, 1fr); }
+  .sniper-hud dl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sniper-stage { width: 100%; min-width: 0; }
+  .sniper-steps { grid-template-columns: minmax(0, 1fr); }
+  .sniper-page .intro { grid-template-columns: 1fr; }
+  .sniper-page .score-card { justify-self: start; margin-top: 10px; }
+  .sniper-tutorial-body { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sniper-stage.is-kick, .sniper-clock.is-low.is-blink, .sniper-heart.is-beat { animation: none; }
+}
+#hud-place { white-space: normal; line-height: 1.25; }

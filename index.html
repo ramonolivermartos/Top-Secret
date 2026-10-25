@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f7">
+  <title>Secretos</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/welcome.css">
+  <link rel="stylesheet" href="styles/menu-modes.css">
+  <script src="scripts/storage.js" defer></script>
+   <script src="scripts/localization-data.js" defer></script>
+   <script src="scripts/i18n.js" defer></script>
+  <script src="scripts/music-data.js" defer></script>
+  <script src="scripts/audio.js" defer></script>
+  <script src="scripts/games-data.js" defer></script>
+  <script src="scripts/player.js" defer></script>
+  <script src="scripts/welcome.js" defer></script>
+  <script src="scripts/sequence.js" defer></script>
+  <script src="scripts/menu-modes.js" defer></script>
+  <script src="scripts/menu.js" defer></script>
+  <script src="debug/points-debug.js" defer></script>
+</head>
+<body class="menu-page">
+  <section id="welcome" class="welcome" aria-label="Secretos">
+    <section class="welcome-page" data-step="splash">
+      <header><h1>Secretos</h1><p class="welcome-byline">by Ramón Oliver</p></header>
+      <svg class="welcome-snake" viewBox="0 0 300 300" role="img" aria-label="Serpiente mordiéndose la cola">
+        <defs><linearGradient id="snake-gradient"><stop stop-color="#8bbd82"/><stop offset="1" stop-color="#375f49"/></linearGradient></defs>
+        <circle class="snake-halo" cx="150" cy="150" r="119"/>
+        <g class="ouroboros">
+          <path class="snake-body" d="M 150 50 A 100 100 0 1 0 181 55"/>
+          <path class="snake-scales" d="M 150 50 A 100 100 0 1 0 181 55"/>
+          <path class="snake-tail" d="M 170 41 L 146 50 L 176 66 Z"/>
+          <g class="snake-head"><path d="M 130 35 Q 165 28 174 46 L 154 51 L 173 57 Q 156 75 130 65 Z" fill="#375f49"/><circle cx="145" cy="42" r="4" fill="#f8df91"/><circle cx="146" cy="42" r="2" fill="#152b20"/></g>
+        </g>
+      </svg>
+      <button class="btn btn-primary" id="welcome-start">Comenzar</button>
+    </section>
+    <section class="welcome-page" data-step="language" data-setup="preference" hidden>
+      <div class="welcome-card">
+        <p class="eyebrow">01 / 03</p>
+        <h2 id="welcome-language-title">¿En qué idioma quieres volverte loco?</h2>
+        <label class="welcome-field" for="welcome-language" id="welcome-language-label">Idioma</label>
+        <select id="welcome-language" class="options-select">
+          <option value="es" lang="es">Español</option><option value="en" lang="en">English</option>
+          <option value="zh-Hans" lang="zh-Hans">简体中文</option><option value="ru" lang="ru">Русский</option><option value="fr" lang="fr">Français</option>
+        </select>
+        <button class="btn btn-primary" id="welcome-language-next">Continuar</button>
+      </div>
+    </section>
+    <section class="welcome-page" data-step="music" data-setup="preference" hidden>
+      <div class="welcome-card">
+        <p class="eyebrow">02 / 03</p>
+        <h2 id="welcome-music-title">¿Qué melodía te acompañará al principio de tu viaje?</h2>
+        <label class="welcome-field" for="welcome-music" id="welcome-music-label">Tipo de música</label>
+        <select id="welcome-music" class="options-select"></select>
+        <div class="welcome-actions"><button class="btn btn-secondary" id="welcome-back">Atrás</button><button class="btn btn-primary" id="welcome-music-next">Continuar</button></div>
+      </div>
+    </section>
+    <section class="welcome-page" data-step="name" data-setup="identity" hidden>
+      <form class="welcome-card" id="welcome-name-form" novalidate>
+        <p class="eyebrow">03 / 03</p>
+        <h2 data-i18n="welcome.nameTitle">Una última cosa: ¿cómo te llamas?</h2>
+        <label class="welcome-field" for="welcome-name" data-i18n="welcome.nameLabel">Tu nombre</label>
+        <input id="welcome-name" class="welcome-input" type="text" maxlength="15" autocomplete="nickname" spellcheck="false"
+          data-i18n-placeholder="welcome.namePlaceholder" aria-describedby="welcome-name-hint welcome-name-error">
+        <div class="welcome-name-meta"><span id="welcome-name-hint" data-i18n="welcome.nameHint"></span><span id="welcome-name-count" aria-hidden="true">0/15</span></div>
+        <p class="welcome-error" id="welcome-name-error" role="alert"></p>
+        <div class="welcome-actions"><button type="button" class="btn btn-secondary" id="welcome-name-back">Atrás</button><button type="submit" class="btn btn-primary" id="welcome-finish">Empezar el viaje</button></div>
+      </form>
+    </section>
+    <section class="welcome-page welcome-reveal" data-step="reveal" hidden>
+      <div class="player-reveal" id="welcome-reveal" aria-live="polite">
+        <p class="player-reveal-name" id="welcome-reveal-name"></p>
+        <p class="player-reveal-description" id="welcome-reveal-description"></p>
+      </div>
+    </section>
+  </section>
+  <div id="menu-content" hidden>
+  <div class="menu-topbar">
+    <div class="player-badge" id="player-badge" role="note" hidden><span class="player-name"></span><span class="player-description"></span></div>
+    <details class="options-card" id="options-menu">
+      <summary id="options-title" data-i18n="menu.optionsTitle">Opciones</summary>
+      <div class="options-content">
+      <div class="option-row">
+        <label for="language-select" data-i18n="menu.langAriaLabel">Idioma</label>
+        <select id="language-select" class="options-select">
+          <option value="es" lang="es">Español</option>
+          <option value="en" lang="en">English</option>
+          <option value="zh-Hans" lang="zh-Hans">简体中文</option>
+          <option value="ru" lang="ru">Русский</option>
+          <option value="fr" lang="fr">Français</option>
+        </select>
+      </div>
+      <div class="option-row">
+        <label for="music-type" data-i18n="menu.musicType">Tipo de música</label>
+        <select id="music-type" class="options-select"></select>
+      </div>
+      </div>
+    </details>
+    <a class="topbar-link" id="secrets-link" href="secretos/index.html" data-i18n="menu.secretsButton">Secretos</a>
+  </div>
+  <header class="menu-header">
+    <p class="eyebrow" data-i18n="menu.eyebrow">Minijuegos sin mucho sentido</p>
+    <h1><span data-i18n="menu.titleStart">Elige tu</span> <span data-i18n="menu.titleHighlight">reto</span></h1>
+    <p class="description" data-i18n="menu.description">Una colección de minijuegos rápidos y un poco absurdos. Cada uno tiene su propia dificultad, así que elige con cuidado.</p>
+
+    <div class="menu-cards">
+      <section class="mode-card" id="random-card" aria-labelledby="random-title">
+        <div class="mode-card-art" aria-hidden="true"><span class="mode-card-dice">🎲</span></div>
+        <h2 id="random-title" data-i18n="menu.random.title">Juego aleatorio</h2>
+        <p data-i18n="menu.random.text">Deja que el azar elija un minijuego por ti.</p>
+        <button class="btn btn-secondary" id="random-play-btn" type="button" data-i18n="menu.random.play">Jugar</button>
+      </section>
+      <div class="progress-card">
+        <div class="progress-card-top">
+          <span data-i18n="menu.totalScoreLabel">PUNTUACIÓN TOTAL</span>
+          <span class="save-status" id="save-status" data-i18n="menu.saveStatusSaved">Progreso guardado</span>
+        </div>
+        <div class="progress-numbers">
+          <strong id="score-current">0</strong><span>/</span><span id="score-target">1.000.000</span>
+        </div>
+        <div class="progress-track"><div id="score-bar"></div></div>
+        <button class="btn btn-secondary" id="save-progress-btn" data-i18n="menu.saveButton" disabled>Guardar progreso</button>
+      </div>
+      <section class="mode-card" id="sequence-card" aria-labelledby="sequence-title">
+        <div class="mode-card-art" id="sequence-art" aria-hidden="true"></div>
+        <h2 id="sequence-title" data-i18n="menu.sequence.title">Secuencia millonaria</h2>
+        <p data-i18n="menu.sequence.text">Cinco minijuegos seguidos. Si los superas todos, premio gordo.</p>
+        <button class="btn btn-primary" id="sequence-play-btn" type="button" data-i18n="menu.sequence.play">Jugar</button>
+      </section>
+    </div>
+    <p class="sequence-notice" id="sequence-notice" role="status" hidden></p>
+  </header>
+
+  <main class="menu-main">
+    <section class="featured-section">
+      <h2 class="section-title" data-i18n="menu.featuredTitle">Destacados para ti</h2>
+      <div class="games-grid" id="featured-grid"></div>
+    </section>
+
+    <section class="browse-section">
+      <h2 class="section-title" data-i18n="menu.allGamesTitle">Todos los juegos</h2>
+      <input type="search" id="games-search" class="games-search" data-i18n-placeholder="menu.searchPlaceholder" data-i18n-aria-label="menu.searchAriaLabel" placeholder="Buscar un juego…" aria-label="Buscar un juego">
+      <div class="games-list" id="games-list"></div>
+      <nav class="games-pagination" id="games-pagination" data-i18n-aria-label="menu.pagesLabel" aria-label="Páginas de juegos" hidden>
+        <button class="btn btn-secondary" id="games-previous" type="button">←</button>
+        <span id="games-page-status" role="status"></span>
+        <button class="btn btn-secondary" id="games-next" type="button">→</button>
+      </nav>
+    </section>
+  </main>
+
+  <footer data-i18n="menu.footer">Hecha para que las cuentas fluyan (o no).</footer>
+  </div>
+</body>
+</html>

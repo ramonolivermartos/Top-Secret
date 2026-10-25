@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f7">
+  <title data-i18n="secretsPage.title">Secretos desvelados</title>
+  <link rel="stylesheet" href="../styles/common.css">
+  <link rel="stylesheet" href="../styles/secrets.css">
+  <link rel="stylesheet" href="../styles/secrets-gallery.css">
+  <script src="../scripts/storage.js" defer></script>
+  <script src="../scripts/localization-data.js" defer></script>
+  <script src="../scripts/i18n.js" defer></script>
+  <script src="../scripts/music-data.js" defer></script>
+  <script src="../scripts/audio.js" defer></script>
+  <script src="../scripts/secrets-data.js" defer></script>
+  <script src="../scripts/secrets.js" defer></script>
+  <script src="../scripts/secrets-gallery.js" defer></script>
+</head>
+<body class="menu-page secrets-page" data-secrets="viewer">
+  <div class="secrets-topbar">
+    <a class="text-link back-link" id="back-link" href="../index.html"><span class="back-arrow">→</span> <span data-i18n="common.backToMenu">Volver al menú</span></a>
+  </div>
+  <header class="menu-header">
+    <p class="eyebrow" data-i18n="secretsPage.eyebrow">Archivo</p>
+    <h1 data-i18n="secretsPage.title">Secretos desvelados</h1>
+    <p class="description" data-i18n="secretsPage.description">Los secretos que has ido desvelando, ordenados de menor a mayor. Pulsa uno para releerlo.</p>
+    <p class="secrets-count" id="secrets-count" role="status"></p>
+  </header>
+  <main class="secrets-main">
+    <ul class="secrets-grid" id="secrets-grid" data-i18n-aria-label="secretsPage.gridLabel" aria-label="Lista de secretos desvelados"></ul>
+    <p class="secrets-empty" id="secrets-empty" data-i18n="secretsPage.empty" hidden>Todavía no has desvelado ningún secreto. Sigue sumando puntos y aparecerán aquí.</p>
+    <nav class="games-pagination" id="secrets-pagination" data-i18n-aria-label="secretsPage.pagesLabel" aria-label="Páginas de secretos" hidden>
+      <button class="btn btn-secondary" id="secrets-previous" type="button">←</button>
+      <span id="secrets-page-status" role="status"></span>
+      <button class="btn btn-secondary" id="secrets-next" type="button">→</button>
+    </nav>
+  </main>
+</body>
+</html>

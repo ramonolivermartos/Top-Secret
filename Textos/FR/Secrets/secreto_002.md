@@ -1,0 +1,17 @@
+RAPPORT DE L'INSPECTEUR GÉNÉRAL SUR LE DOSSIER NIBIRU
+
+Audit de conformité. Classification : diffusion restreinte. Copie divulguée.
+
+En mars 2000, lors de travaux de consolidation de la ziggourat d'Ur, le Conseil national des antiquités d'Irak a mis au jour une tablette d'argile de la troisième dynastie. Son contenu, vérifié par trois commissions indépendantes et par une quatrième qui se méfiait des trois autres, établit l'existence des Anunnaki et décrit leur système de propulsion. Saddam Hussein l'a fait conserver dans un palais de Bagdad et, comme pour les briques de Babylone, y a fait graver son nom au verso.
+
+Entre-temps, les inspecteurs de l'ONU ont fouillé l'Irak en quête d'armes de destruction massive. Ils n'en ont trouvé aucune ; personne n'a songé à l'inventaire des céramiques. Au sommet des Açores, quatre dirigeants ont posé devant les caméras, mais l'annexe confidentielle du procès-verbal mentionne une cinquième participante : la tablette, représentée par une photocopie. À l'ONU, la France réclamait plus de temps pour les inspecteurs ; il ne leur manquait que le rayon céramique.
+
+Pendant la guerre, la tablette, transférée au Musée national pour sa protection, a disparu lors du pillage d'avril. Réapparue sur un marché de Bagdad et passée par quatre propriétaires, elle a été saisie en février 2004 par des troupes américaines et alliées, dont la France ne faisait pas partie, ce qu'elle a tenu à confirmer par écrit. Le procès-verbal y voit un « bon de livraison d'orge ». Les Anunnaki, comme les scribes sumériens qui les vénéraient, rédigeaient tout ce qui comptait sous forme de bon de livraison : expéditeur, destinataire, quantité. Il manquait la TVA, qu'un Français inventerait quatre mille ans plus tard. La tablette a fini dans un entrepôt de l'Ohio parmi trois mille pièces.
+
+En 2006, un assyriologue recruté par le Pentagone pour justifier le loyer de l'entrepôt a lu le revers. Ce n'était pas de l'orge. C'était une convocation. La tablette contient l'itinéraire jusqu'à Nibiru, dont l'orbite dure trois mille six cents ans, et somme l'humanité de s'y présenter en personne. Les Anunnaki ne viendront pas. Le texte est formel : l'administration ne se déplace pas, l'usager se présente au guichet.
+
+Le Pentagone a alors lancé un appel d'offres pour un « service de transfert de personnes convoquées vers une destination non précisée ». Une seule entreprise a répondu, avec Mars pour destination officielle. Le jury l'a jugée brillante : aucune commission du Congrès ne voterait un poste intitulé « comparution devant des divinités sumériennes », alors que Mars se vote presque tout seul. L'attributaire s'appelait SpaceX. Mars est la couverture ; Nibiru, la destination. Aucun pays sérieux ne s'en offusque : l'aéroport de Notre-Dame-des-Landes a nourri cinquante ans d'études sans voir atterrir un seul avion.
+
+Un obstacle demeure. La convocation exige l'original, et l'original appartient à l'Irak. En 2021, parmi les dix-sept mille pièces restituées par les États-Unis à Bagdad, la tablette manquait : elle figurait toujours comme de l'orge. Le ministère irakien de la Culture la réclame et exige une demande de prêt en personne, à Bagdad, dossier complet.
+
+Le voyage de l'humanité vers Nibiru dépend donc d'un premier passage à Bagdad. La réponse du ministère, arrivée en mars, comportait deux tampons, trois signatures et une phrase que la Mésopotamie perfectionne depuis cinq mille ans : il manque une pièce, repassez lundi.

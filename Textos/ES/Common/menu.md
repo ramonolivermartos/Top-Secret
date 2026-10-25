@@ -1,0 +1,51 @@
+# Main menu and options — Español
+
+Locale: `es`. This is the **source** language: every other language is translated from it. Keep the keys and every `{{variable}}` and HTML tag unchanged.
+
+```json
+{
+  "menu.titleStart": "Elige tu",
+  "menu.titleHighlight": "reto",
+  "menu.eyebrow": "Minijuegos sin mucho sentido",
+  "menu.description": "Una colección de minijuegos rápidos y un poco absurdos. Cada uno tiene su propia dificultad, así que elige con cuidado.",
+  "menu.totalScoreLabel": "PUNTUACIÓN TOTAL",
+  "menu.saveStatusSaved": "Progreso guardado",
+  "menu.saveStatusPending": "Progreso sin guardar",
+  "menu.saveStatusJustSaved": "¡Progreso guardado!",
+  "menu.saveButton": "Guardar progreso",
+  "menu.featuredTitle": "Destacados para ti",
+  "menu.allGamesTitle": "Todos los juegos",
+  "menu.searchPlaceholder": "Buscar un juego…",
+  "menu.searchAriaLabel": "Buscar un juego",
+  "menu.footer": "Hecha para que las cuentas fluyan (o no).",
+  "menu.play": "Jugar",
+  "menu.comingSoon": "Próximamente",
+  "menu.difficultyLabel": "Dificultad {{value}}/10",
+  "menu.difficultyUnknown": "Dificultad por desvelar",
+  "menu.noResults": "No hay juegos que coincidan con tu búsqueda.",
+  "menu.langAriaLabel": "Idioma",
+  "menu.optionsTitle": "Opciones",
+  "menu.musicType": "Tipo de música",
+  "menu.modeCancel": "Cancelar",
+  "menu.modeStart": "Empezar",
+  "menu.random.title": "Juego aleatorio",
+  "menu.random.text": "Deja que el azar elija un minijuego por ti.",
+  "menu.random.play": "Jugar",
+  "menu.random.modalTitle": "¡Te ha tocado!",
+  "menu.sequence.title": "Secuencia millonaria",
+  "menu.sequence.text": "Cinco minijuegos seguidos. Si los superas todos, premio gordo.",
+  "menu.sequence.play": "Jugar",
+  "menu.sequence.abandoned": "Abandonaste la secuencia anterior: 0 puntos.",
+  "menu.sequence.modalTitle": "Secuencia millonaria",
+  "menu.sequence.rule1": "Vas a jugar 5 rondas, cada una con un minijuego al azar y con dificultad aleatoria. Los juegos que ya tienen rondas cuentan como un único minijuego.",
+  "menu.sequence.rule2": "Superar un minijuego vale 5.000 puntos, pero solo los cobras si llegas hasta el final. En los juegos con rondas hay que ganarlas todas.",
+  "menu.sequence.rule3": "Si completas la secuencia ganas 25.000 puntos (5 × 5.000) más 10.000 de bonus.",
+  "menu.sequence.rule4": "Si pierdes un minijuego o abandonas, te llevas 0 puntos. Los puntos normales de cada juego no cuentan. La música no se interrumpe.",
+  "menu.playerAriaLabel": "Jugador: {{name}}, {{description}}",
+  "menu.pagesLabel": "Páginas de juegos",
+  "menu.previous": "Anterior",
+  "menu.next": "Siguiente",
+  "menu.page": "Página",
+  "menu.secretsButton": "Secretos"
+}
+```

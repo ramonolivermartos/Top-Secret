@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f7">
+  <title data-i18n="snake2.title">Snake mordisco 2</title>
+  <link rel="stylesheet" href="../../../styles/common.css">
+  <link rel="stylesheet" href="../../../styles/sequence.css">
+  <link rel="stylesheet" href="snake2.css">
+  <link rel="stylesheet" href="../../../styles/secrets.css">
+  <script src="../../../scripts/storage.js" defer></script>
+  <script src="../../../scripts/sequence.js" defer></script>
+  <script src="../../../scripts/localization-data.js" defer></script>
+  <script src="../../../scripts/i18n.js" defer></script>
+  <script src="../../../scripts/music-data.js" defer></script>
+  <script src="../../../scripts/audio.js" defer></script>
+  <script src="../../../scripts/messages-data.js" defer></script>
+  <script src="../../../scripts/quit-confirm.js" defer></script>
+  <script src="../../../scripts/secrets-data.js" defer></script>
+  <script src="../../../scripts/secrets.js" defer></script>
+  <script src="../powerups.js" defer></script>
+  <script src="../../../debug/difficulty-debug.js" defer></script>
+  <script src="../difficulty-levels.js" defer></script>
+  <script src="snake2.js" defer></script>
+</head>
+<body class="game-page">
+  <main class="layout">
+    <section class="intro" aria-labelledby="page-title">
+      <a class="text-link back-link" href="../../../index.html"><span class="back-arrow">→</span> <span data-i18n="common.backToMenu">Volver al menú</span></a>
+      <p class="eyebrow" data-i18n="snake.eyebrow">Crece, esquiva y aguanta hasta el final</p>
+      <h1 id="page-title"><span data-i18n="snake.titleLine1">Snake</span><br><span data-i18n="snake2.titleLine2">mordisco 2.</span></h1>
+      <p class="description" data-i18n="snake.description">Guía a la serpiente y come manzanas para crecer. Llega a 17 segmentos para empezar a sumar puntos, y sigue creciendo hasta que se acabe el tiempo: cada segmento extra suma más.</p>
+      <div class="score-card" aria-live="polite"><span data-i18n="common.score">PUNTUACIÓN</span><strong id="score">0</strong></div>
+    </section>
+
+    <section class="panel snake-panel is-intro" id="snake2-game" data-i18n-aria-label="snake2.title" aria-label="Snake mordisco 2">
+      <div class="game-overlay" id="intro-overlay">
+        <h2 data-i18n="common.howToPlay">¿Cómo se juega?</h2>
+        <ul class="overlay-rules">
+          <li data-i18n="snake.rule1">Mueve la serpiente con las flechas o WASD.</li>
+          <li data-i18n="snake.rule2">Come manzanas 🍎 para crecer un segmento cada vez.</li>
+          <li data-i18n-html="snake.rule3html">Al llegar a <strong>17</strong> segmentos consigues 50 puntos.</li>
+          <li data-i18n="snake.rule4">La partida no termina ahí: sigues jugando hasta que se acabe el tiempo, y cada segmento extra por encima de 17 suma 6 puntos más.</li>
+          <li data-i18n="snake2.rule5">Los bichos restan 2 segmentos al tocar cualquier parte de tu cuerpo. Chocar contigo mismo también resta 2. La partida continúa.</li>
+          <li data-i18n="snake.rule6">Los bordes son un túnel: si sales por un lado, apareces por el otro.</li>
+          <li data-i18n="snake.rule7">Si nunca llegas a 17 segmentos, la partida suma 0 puntos.</li>
+          <li data-i18n="snake.rule8">Tienes 1 minuto y 30 segundos en total.</li>
+          <li data-i18n="snake.helpHint">Si la cosa se pone muy difícil, tendrás una pequeña ayuda.</li>
+        </ul>
+        <button class="btn btn-primary" id="start-btn" data-i18n="snake.startButton">Empezar partida</button>
+      </div>
+      <div class="panel-top"><span class="brand-mark" aria-hidden="true">~</span><span data-i18n="snake2.title">Snake mordisco 2</span><span class="status-dot" data-i18n-aria-label="common.inProgress" aria-label="En juego"></span></div>
+      <section class="challenge" data-i18n-aria-label="snake.ariaChallenge" aria-label="Objetivo de la partida">
+        <span class="challenge-label" id="challenge-label" data-i18n="snake.challengeLabel">TIEMPO RESTANTE</span>
+        <strong id="target">1:30</strong>
+        <div class="timer-track"><div id="timer-bar"></div></div>
+        <p id="countdown" aria-live="off"><span data-i18n="snake.lengthPrefix">Longitud:</span> <span id="length">4</span> / 17</p>
+      </section>
+      <div class="board-wrap">
+        <canvas id="board" width="440" height="440" data-i18n-aria-label="snake.ariaBoard" aria-label="Tablero del snake"></canvas>
+      </div>
+      <p class="game-message" id="message" aria-live="polite" data-i18n="snake.readyMessage">¡A por ello!</p>
+      <p class="keyboard-hint" data-i18n="snake.keyboardHint">Usa las flechas o WASD para moverte</p>
+    </section>
+  </main>
+  <footer data-i18n="snake.footer">Hecha para que las cuentas fluyan.</footer>
+</body>
+</html>

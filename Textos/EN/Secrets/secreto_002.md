@@ -1,0 +1,17 @@
+REPORT OF THE INSPECTOR GENERAL ON THE NIBIRU FILE
+
+Compliance audit. Classification: restricted. Leaked copy.
+
+In March 2000, during consolidation works on the ziggurat of Ur, Iraq's State Board of Antiquities recovered a clay tablet from the Third Dynasty. Its contents, verified by three independent commissions and by a fourth that did not trust the other three, establish the existence of the Anunnaki and describe their propulsion system. Saddam Hussein had it kept in a Baghdad palace and, as he had done with the bricks of Babylon, had his own name inscribed on the back.
+
+Meanwhile, United Nations inspectors combed Iraq for weapons of mass destruction. They found none, and it occurred to nobody to check the pottery inventory. At the Azores summit four leaders posed for the cameras, but the confidential annex to the minutes records a fifth attendee: the tablet, represented by a photocopy. Downing Street's dossier insisted that Iraq was hiding something of the utmost gravity, and technically it was right.
+
+During the war, according to the file, its route was "eventful". Moved to the National Museum for safekeeping, it vanished in the April looting. It resurfaced in a Baghdad market, changed hands four times and was seized in February 2004 at a joint checkpoint of American and British troops. The incident report, signed by a corporal from Doncaster, describes it as a "delivery note for barley", and a copy is held at the National Archives in Kew, closed to the public for decades. The Anunnaki, like the Sumerian clerks who worshipped them, put anything important in the form of a delivery note: sender, recipient and quantity. VAT was missing, as it had not yet been invented. It ended up in an Ohio warehouse with three thousand other items.
+
+In 2006, an Assyriologist hired by the Pentagon to justify the rent on the warehouse read the back. It was not barley. It was a summons. The tablet contains the route to Nibiru, whose orbit lasts three thousand six hundred years, and formally requires humanity to appear in person. The Anunnaki have no intention of coming. The text is unequivocal: the authority does not travel; the applicant attends.
+
+The Department of Defense then put out a tender for a "transfer service for persons summoned to an unspecified destination". Only one company bid, with Mars as its official destination. The panel found the bid brilliant: no congressional appropriations committee would approve an item entitled "appearance before Sumerian deities", whereas Mars practically approves itself. The successful bidder was called SpaceX. Mars is the cover; Nibiru is the destination. No serious country is scandalised by infrastructure that fails to go where it says: HS2 was announced as a railway to Manchester.
+
+One obstacle remains. The summons requires the original, and the original belongs to Iraq. In 2021, of the seventeen thousand artefacts the United States returned to Baghdad, the tablet was missing: it was still listed as barley. The Iraqi Ministry of Culture has claimed it back and insists the loan be requested in person, in Baghdad, with complete documentation.
+
+Humanity's journey to Nibiru therefore depends on someone first calling in at Baghdad. The ministry's first reply arrived in March. It contained two stamps, three signatures and a sentence Mesopotamia has spent five thousand years perfecting: please come back on Monday.

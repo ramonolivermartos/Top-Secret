@@ -1,0 +1,51 @@
+# Main menu and options — Français
+
+Locale: `fr`. Translated from `ES`, the source language. Keep the keys and every `{{variable}}` and HTML tag unchanged.
+
+```json
+{
+  "menu.titleStart": "Choisis ton",
+  "menu.titleHighlight": "défi",
+  "menu.eyebrow": "Des mini-jeux qui n’ont pas grand sens",
+  "menu.description": "Une collection de mini-jeux rapides et un peu absurdes. Chacun a son niveau de difficulté, alors choisis bien.",
+  "menu.totalScoreLabel": "SCORE TOTAL",
+  "menu.saveStatusSaved": "Progression sauvegardée",
+  "menu.saveStatusPending": "Progression non sauvegardée",
+  "menu.saveStatusJustSaved": "Progression sauvegardée !",
+  "menu.saveButton": "Sauvegarder la progression",
+  "menu.featuredTitle": "Sélection pour toi",
+  "menu.allGamesTitle": "Tous les jeux",
+  "menu.searchPlaceholder": "Rechercher un jeu…",
+  "menu.searchAriaLabel": "Rechercher un jeu",
+  "menu.footer": "Conçu pour que les comptes tombent juste. Ou pas.",
+  "menu.play": "Jouer",
+  "menu.comingSoon": "Bientôt disponible",
+  "menu.difficultyLabel": "Difficulté : {{value}}/10",
+  "menu.difficultyUnknown": "Difficulté encore inconnue",
+  "menu.noResults": "Aucun jeu ne correspond à ta recherche.",
+  "menu.langAriaLabel": "Langue",
+  "menu.optionsTitle": "Options",
+  "menu.musicType": "Type de musique",
+  "menu.modeCancel": "Annuler",
+  "menu.modeStart": "Commencer",
+  "menu.random.title": "Jeu aléatoire",
+  "menu.random.text": "Laissez le hasard choisir un minijeu pour vous.",
+  "menu.random.play": "Jouer",
+  "menu.random.modalTitle": "Vous avez obtenu :",
+  "menu.sequence.title": "Séquence du million",
+  "menu.sequence.text": "Cinq minijeux d'affilée. Réussissez-les tous pour le jackpot.",
+  "menu.sequence.play": "Jouer",
+  "menu.sequence.abandoned": "Vous avez abandonné la séquence précédente : 0 point.",
+  "menu.sequence.modalTitle": "Séquence du million",
+  "menu.sequence.rule1": "Vous jouerez 5 manches, chacune un minijeu aléatoire à une difficulté aléatoire. Les jeux qui ont déjà des manches comptent comme un seul minijeu.",
+  "menu.sequence.rule2": "Réussir un minijeu vaut 5 000 points, mais vous ne les encaissez qu'en arrivant à la fin. Dans les jeux à manches, il faut toutes les gagner.",
+  "menu.sequence.rule3": "Terminez la séquence et vous gagnez 25 000 points (5 × 5 000) plus un bonus de 10 000.",
+  "menu.sequence.rule4": "Si vous perdez un minijeu ou abandonnez, vous obtenez 0 point. Les points normaux de chaque jeu ne comptent pas. La musique ne s'arrête jamais.",
+  "menu.playerAriaLabel": "Joueur : {{name}}, {{description}}",
+  "menu.pagesLabel": "Pages de jeux",
+  "menu.previous": "Précédent",
+  "menu.next": "Suivant",
+  "menu.page": "Page",
+  "menu.secretsButton": "Secrets"
+}
+```

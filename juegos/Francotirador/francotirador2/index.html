@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f5f7">
+  <title data-i18n="games.francotirador2.title">Francotirador 2</title>
+  <link rel="stylesheet" href="../../../styles/common.css">
+  <link rel="stylesheet" href="../../../styles/sequence.css">
+  <link rel="stylesheet" href="../../../styles/secrets.css">
+  <link rel="stylesheet" href="../francotirador/francotirador.css">
+  <script src="../../../scripts/storage.js" defer></script>
+  <script src="../../../scripts/sequence.js" defer></script>
+  <script src="../../../scripts/localization-data.js" defer></script>
+  <script src="../../../scripts/i18n.js" defer></script>
+  <script src="../../../scripts/music-data.js" defer></script>
+  <script src="../../../scripts/audio.js" defer></script>
+  <script src="../../../scripts/messages-data.js" defer></script>
+  <script src="../../../scripts/quit-confirm.js" defer></script>
+  <script src="../../../scripts/secrets-data.js" defer></script>
+  <script src="../../../scripts/secrets.js" defer></script>
+  <script src="../../../debug/difficulty-debug.js" defer></script>
+  <script src="../francotirador/francotirador-core.js" defer></script>
+  <script src="../francotirador/francotirador.js" defer></script>
+</head>
+<body class="game-page sniper-page" data-sniper="francotirador2">
+  <main class="layout">
+    <section class="intro" aria-labelledby="page-title">
+      <a class="text-link back-link" href="../../../index.html"><span class="back-arrow">→</span> <span data-i18n="common.backToMenu">Volver al menú</span></a>
+      <p class="eyebrow" data-i18n="francotirador.eyebrow">Lee el viento, aguanta la respiración, dispara</p>
+      <h1 id="page-title"><span data-i18n="francotirador2.title">Francotirador 2</span></h1>
+      <p class="description" data-i18n="francotirador2.description">…</p>
+      <div class="score-card" aria-live="polite"><span data-i18n="common.score">PUNTUACIÓN</span><strong id="score">0</strong><span class="score-goal"><span data-i18n="francotirador.goalPrefix">Objetivo</span> <span id="goal">1500</span></span></div>
+    </section>
+
+    <section class="panel sniper-panel is-intro" id="sniper-game" tabindex="-1" data-i18n-aria-label="francotirador.ariaPanel" aria-label="Francotirador 2">
+      <div class="game-overlay" id="intro-overlay">
+        <h2 data-i18n="common.howToPlay">¿Cómo se juega?</h2>
+        <ul class="overlay-rules">
+          <li data-i18n="francotirador.rule1" data-vars>La partida son 5 rondas. Cada ronda son 5 disparos a la misma diana, y su nivel (Fácil, Medio o Difícil) se sortea con la misma probabilidad. Cuanto más lejos, más difícil.</li>
+          <li data-i18n="francotirador.rule2" data-vars>Tienes 20 segundos por disparo. Si el reloj llega a cero, el rifle dispara solo con la mira como esté.</li>
+          <li data-i18n="francotirador2.rule">…</li>
+          <li data-i18n="francotirador.rule3">Cada disparo son cuatro cosas a la vez: apuntar (ratón o flechas y WASD), aguantar la respiración (Mayús, C o botón derecho), corregir el viento (a veces hay que apuntar fuera de la diana) y disparar (espacio o clic) justo cuando la marca de la barra de concentración pase por el centro.</li>
+          <li data-i18n-html="francotirador.rule4html">La diana tiene un centro y tres anillos: <strong>100, 50, 25 y 10 puntos</strong>. Fuera de la diana no se puntúa.</li>
+          <li data-i18n-html="francotirador.rule5html" data-vars>Si entre las 5 rondas sumas <strong>1500 puntos</strong> o más, ganas <strong>25.000 puntos</strong>. Si no llegas, no te llevas ninguno.</li>
+        </ul>
+        <div class="overlay-actions">
+          <button class="btn btn-primary" id="start-btn" data-i18n="francotirador.startButton">Empezar partida</button>
+          <button class="btn btn-secondary" id="guide-btn" data-i18n="francotirador.guideButton">Ver guía de tiro</button>
+        </div>
+      </div>
+
+      <div class="panel-top"><span class="brand-mark" aria-hidden="true">◎</span><span data-i18n="francotirador.brandLabel">FRANCOTIRADOR</span><span class="status-dot" data-i18n-aria-label="common.inProgress" aria-label="En juego"></span></div>
+      <p class="rounds-indicator" id="round-indicator" aria-live="polite"></p>
+
+      <div class="board-wrap sniper-wrap">
+        <div class="sniper-top">
+          <aside class="sniper-hud" id="hud" aria-hidden="true">
+            <canvas id="compass" width="96" height="96"></canvas>
+            <dl>
+              <div><dt data-i18n="francotirador.hudWind">Viento</dt><dd id="hud-wind">—</dd></div>
+              <div><dt data-i18n="francotirador.hudFrom">Procede de</dt><dd id="hud-from">—</dd></div>
+              <div><dt data-i18n="francotirador.hudDistance">Distancia</dt><dd id="hud-distance">—</dd></div>
+              <div><dt data-i18n="francotirador.hudPlace">Lugar</dt><dd id="hud-place">—</dd></div>
+              <div><dt data-i18n="francotirador.hudFlight">Vuelo</dt><dd id="hud-flight">—</dd></div>
+              <div><dt data-i18n="francotirador.hudDrift">Deriva</dt><dd id="hud-drift">—</dd></div>
+              <div><dt data-i18n="francotirador.hudCoriolis">Coriolis</dt><dd id="hud-coriolis">—</dd></div>
+              <div><dt data-i18n="francotirador.hudConc">Concentración</dt><dd id="hud-conc">—</dd></div>
+              <div><dt data-i18n="francotirador.hudPulse">Pulso</dt><dd><span class="sniper-heart" id="heart"></span> <span id="hud-pulse">—</span></dd></div>
+              <div><dt data-i18n="francotirador.hudBreath">Aire</dt><dd><span class="sniper-air"><i id="air-bar"></i></span></dd></div>
+            </dl>
+          </aside>
+          <div class="sniper-last" id="last-shot" aria-live="polite">
+            <p class="sniper-last-title" id="shot-counter"></p>
+            <p class="sniper-last-total"><span data-i18n="francotirador.roundLabel">Ronda</span> <strong id="round-score">0</strong></p>
+            <dl class="sniper-last-detail" id="last-detail" hidden></dl>
+          </div>
+        </div>
+
+        <div class="sniper-stage" id="stage">
+          <div class="sniper-scene" id="scene" aria-hidden="true"></div>
+          <canvas id="scope" width="960" height="540" tabindex="-1" data-i18n-aria-label="francotirador.ariaScope" aria-label="Visor del rifle"></canvas>
+
+          <div class="sniper-clock" id="clock" aria-hidden="true">25</div>
+
+          <div class="sniper-bottom" aria-hidden="true">
+            <p class="sniper-conc-label" data-i18n="francotirador.concLabel">CONCENTRACIÓN · dispara con la marca en el centro</p>
+            <div class="sniper-flight" id="flight"><i id="flight-bar"></i></div>
+            <div class="sniper-conc" id="conc-track"><i class="sniper-conc-sweet"></i><b id="conc-marker"></b><span id="conc-value">0.00</span></div>
+          </div>
+        </div>
+
+        <ol class="sniper-steps">
+          <li data-i18n="francotirador.step1">1 · Apunta: ratón o flechas/WASD</li>
+          <li data-i18n="francotirador.step2">2 · Aguanta la respiración: Mayús, C o clic derecho</li>
+          <li data-i18n="francotirador.step3">3 · Dispara con la marca en el centro de la barra: espacio o clic</li>
+          <li data-i18n="francotirador.step4">4 · Corrige el viento: si sopla hacia la derecha, apunta a la izquierda de la diana</li>
+        </ol>
+      </div>
+      <p class="game-message" id="message" aria-live="polite" data-i18n="francotirador.readyMessage">Lee el viento y apunta.</p>
+    </section>
+  </main>
+  <footer data-i18n="francotirador.footer">Hecha para acertar sin sentido.</footer>
+
+  <div class="sniper-tutorial" id="tutorial" role="dialog" aria-modal="true" aria-labelledby="tutorial-title" style="display:none">
+    <article class="sniper-tutorial-card" id="tutorial-card">
+      <button type="button" class="sniper-tutorial-close" id="tutorial-close" data-i18n-aria-label="francotirador.tutorialClose" aria-label="Cerrar guía">✕</button>
+      <header>
+        <p class="eyebrow" data-i18n="francotirador.tutorialEyebrow">Guía de tiro</p>
+        <h2 id="tutorial-title" data-i18n="francotirador.tutorialTitle">Cómo hacer un disparo certero</h2>
+        <p class="sniper-tutorial-lead" data-i18n="francotirador.tutorialLead">Para acertar necesitas cuatro cosas: apuntar, respirar, disparar en el momento justo y tener en cuenta el viento.</p>
+      </header>
+      <div class="sniper-tutorial-body" id="tutorial-body" tabindex="0" data-i18n-aria-label="francotirador.tutorialBodyLabel" aria-label="Contenido de la guía">
+        <section class="sniper-basic">
+          <h3 data-i18n="francotirador.tutorialBasicTitle">Lo básico: cuatro cosas a la vez</h3>
+          <ol>
+            <li data-i18n-html="francotirador.tutorialStep1html"><strong>Apunta.</strong> Mueve la cruz hasta el centro de la diana con el ratón o con las flechas y WASD.</li>
+            <li data-i18n-html="francotirador.tutorialStep2html"><strong>Aguanta la respiración.</strong> Mantén pulsado Mayús, C o el botón derecho. La cruz casi deja de temblar, pero el aire dura solo 3 segundos.</li>
+            <li data-i18n-html="francotirador.tutorialStep3html"><strong>Dispara con la barra en el centro.</strong> La barra de abajo se llama Concentración y va de un lado a otro. Pulsa espacio o haz clic justo cuando la marca blanca pase por la zona verde del centro.</li>
+            <li data-i18n-html="francotirador.tutorialStep4html"><strong>Corrige el viento.</strong> El viento empuja la bala, así que hay que apuntar hacia el lado contrario: si sopla hacia la derecha, apunta a la izquierda de la diana. A veces tendrás que apuntar fuera de la diana para acertar. Mira la brújula y lee abajo cómo.</li>
+          </ol>
+          <p data-i18n="francotirador.tutorialBasicNote">Las cuatro a la vez: apunta corrigiendo el viento, aguanta y, con el aire aún dentro, dispara cuando la marca cruce el centro. Si disparas lejos del centro de la barra, la bala se desvía al azar.</p>
+        </section>
+        <section>
+          <h3 data-i18n="francotirador.tutorialWindTitle">El viento</h3>
+          <p data-i18n="francotirador.tutorialWind1">El viento empuja la bala hacia un lado. Mira la brújula del panel como si fuera un reloj: arriba está la diana y abajo estás tú. La flecha amarilla sale del lado de donde sopla.</p>
+          <p data-i18n="francotirador.tutorialWind2">A las 3 o las 9 el viento empuja de lado con toda su fuerza. A las 12 o las 6 no empuja nada, porque va de cara o de espalda. En medio, a medias.</p>
+          <p data-i18n="francotirador.tutorialWind3">Apunta hacia el lado de donde viene el viento: si viene de tu derecha, apunta un poco a la derecha de la diana. Cuanto más fuerte sea el viento y más lejos esté la diana, más hay que apuntar al lado.</p>
+        </section>
+        <section>
+          <h3 data-i18n="francotirador.tutorialDriftTitle">Cuánto apuntar al lado</h3>
+          <p data-i18n="francotirador.tutorialDrift1">El panel muestra la «deriva»: cuántas marcas de la cruz se desvía la bala por cada m/s de viento de lado. Multiplica el viento de lado por la deriva y apunta ese número de marcas hacia el lado del viento.</p>
+          <p data-i18n="francotirador.tutorialExample1">Ejemplo: viento de 4 m/s que viene de tu derecha (las 3). La deriva marca 0,5. Son 4 × 0,5 = 2: apunta 2 marcas a la derecha del centro.</p>
+        </section>
+        <section>
+          <h3 data-i18n="francotirador.tutorialCoriolisTitle">La Tierra también empuja</h3>
+          <p data-i18n="francotirador.tutorialCoriolis1">Como la Tierra gira, la bala se desvía un poquito más. El panel dice cuánto y hacia dónde (← o →): apunta al lado contrario. Cerca del ecuador casi no se nota.</p>
+        </section>
+        <section>
+          <h3 data-i18n="francotirador.tutorialMovingTitle">Dianas en movimiento</h3>
+          <p data-i18n="francotirador2.tutorialMoving">…</p>
+        </section>
+        <section>
+          <h3 data-i18n="francotirador.tutorialPulseTitle">Pulso y reloj</h3>
+          <p data-i18n="francotirador.tutorialPulse1" data-vars>Tienes 20 segundos por disparo y el corazón se acelera al acabarse, lo que hace temblar más la cruz. No hace falta correr, pero tampoco esperar eternamente. Si te quedas sin aire, quedas agotado y toca esperar a recuperarlo.</p>
+        </section>
+        <section>
+          <h3 data-i18n="francotirador.tutorialLearnTitle">Aprende de cada disparo</h3>
+          <p data-i18n="francotirador.tutorialLearn1">Tras cada disparo, una línea de puntos une adonde apuntabas con el agujero. En el panel de arriba verás qué te desvió: concentración, viento, Coriolis o temblor.</p>
+        </section>
+        <section>
+          <h3 data-i18n="francotirador.tutorialScoreTitle">Puntuación</h3>
+          <p data-i18n-html="francotirador.tutorialScore1html" data-vars>Centro <strong>100</strong>, primer anillo <strong>50</strong>, segundo <strong>25</strong> y anillo exterior <strong>10</strong>. Con 25 disparos el máximo es 2500 y necesitas <strong>1500</strong> para ganar los 25.000 puntos.</p>
+        </section>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

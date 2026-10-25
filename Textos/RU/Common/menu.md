@@ -1,0 +1,51 @@
+# Main menu and options — Русский
+
+Locale: `ru`. Translated from `ES`, the source language. Keep the keys and every `{{variable}}` and HTML tag unchanged.
+
+```json
+{
+  "menu.titleStart": "Выбери своё",
+  "menu.titleHighlight": "испытание",
+  "menu.eyebrow": "Мини-игры без особого смысла",
+  "menu.description": "Коллекция быстрых и слегка абсурдных мини-игр. У каждой своя сложность, так что выбирай с умом.",
+  "menu.totalScoreLabel": "ОБЩИЙ СЧЁТ",
+  "menu.saveStatusSaved": "Прогресс сохранён",
+  "menu.saveStatusPending": "Прогресс не сохранён",
+  "menu.saveStatusJustSaved": "Прогресс сохранён!",
+  "menu.saveButton": "Сохранить прогресс",
+  "menu.featuredTitle": "Рекомендуем тебе",
+  "menu.allGamesTitle": "Все игры",
+  "menu.searchPlaceholder": "Найти игру…",
+  "menu.searchAriaLabel": "Поиск игры",
+  "menu.footer": "Создано, чтобы цифры складывались. Или не складывались.",
+  "menu.play": "Играть",
+  "menu.comingSoon": "Скоро",
+  "menu.difficultyLabel": "Сложность: {{value}}/10",
+  "menu.difficultyUnknown": "Сложность пока неизвестна",
+  "menu.noResults": "По твоему запросу игр не найдено.",
+  "menu.langAriaLabel": "Язык",
+  "menu.optionsTitle": "Настройки",
+  "menu.musicType": "Тип музыки",
+  "menu.modeCancel": "Отмена",
+  "menu.modeStart": "Начать",
+  "menu.random.title": "Случайная игра",
+  "menu.random.text": "Пусть случай выберет мини-игру за вас.",
+  "menu.random.play": "Играть",
+  "menu.random.modalTitle": "Вам выпало:",
+  "menu.sequence.title": "Миллионная последовательность",
+  "menu.sequence.text": "Пять мини-игр подряд. Пройдите все — и получите джекпот.",
+  "menu.sequence.play": "Играть",
+  "menu.sequence.abandoned": "Вы бросили предыдущую последовательность: 0 очков.",
+  "menu.sequence.modalTitle": "Миллионная последовательность",
+  "menu.sequence.rule1": "Вы сыграете 5 раундов, в каждом — случайная мини-игра со случайной сложностью. Игры, в которых уже есть раунды, считаются одной мини-игрой.",
+  "menu.sequence.rule2": "Прохождение мини-игры стоит 5 000 очков, но вы получите их, только дойдя до конца. В играх с раундами нужно выиграть все.",
+  "menu.sequence.rule3": "Завершите последовательность — и получите 25 000 очков (5 × 5 000) плюс бонус 10 000.",
+  "menu.sequence.rule4": "Если вы проиграете мини-игру или выйдете, вы получите 0 очков. Обычные очки каждой игры не засчитываются. Музыка не прекращается никогда.",
+  "menu.playerAriaLabel": "Игрок: {{name}}, {{description}}",
+  "menu.pagesLabel": "Страницы игр",
+  "menu.previous": "Назад",
+  "menu.next": "Далее",
+  "menu.page": "Страница",
+  "menu.secretsButton": "Секреты"
+}
+```

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f7">
+  <title data-i18n="games.allin.title">All in</title>
+  <link rel="stylesheet" href="../../../styles/common.css">
+  <link rel="stylesheet" href="../../../styles/sequence.css">
+  <link rel="stylesheet" href="../../../styles/secrets.css">
+  <link rel="stylesheet" href="allin.css">
+  <script src="../../../scripts/storage.js" defer></script>
+  <script src="../../../scripts/sequence.js" defer></script>
+  <script src="../../../scripts/localization-data.js" defer></script>
+  <script src="../../../scripts/i18n.js" defer></script>
+  <script src="../../../scripts/music-data.js" defer></script>
+  <script src="../../../scripts/audio.js" defer></script>
+  <script src="../../../scripts/quit-confirm.js" defer></script>
+  <script src="../../../scripts/secrets-data.js" defer></script>
+  <script src="../../../scripts/secrets.js" defer></script>
+  <script src="../../../debug/difficulty-debug.js" defer></script>
+  <script src="allin.js" defer></script>
+</head>
+<body class="game-page allin-page">
+  <main class="layout allin-layout">
+    <header class="allin-top">
+      <a class="text-link back-link" href="../../../index.html"><span class="back-arrow">→</span> <span data-i18n="common.backToMenu">Volver al menú</span></a>
+      <div class="allin-heading">
+        <p class="eyebrow" data-i18n="allin.eyebrow">Suerte pura</p>
+        <h1 id="page-title">All <span>in</span></h1>
+        <p class="allin-tagline" data-i18n="allin.tagline">Tres cajas. Una moneda. Una oportunidad.</p>
+      </div>
+      <div class="score-card allin-score" aria-live="polite"><span data-i18n="common.score">PUNTUACIÓN</span><strong id="score">0</strong></div>
+    </header>
+
+    <section class="panel allin-board is-intro" id="allin-game" data-i18n-aria-label="allin.ariaBoard" aria-label="Mesa de las tres cajas">
+      <div class="game-overlay allin-intro-overlay" id="intro-overlay">
+        <h2 data-i18n="common.howToPlay">¿Cómo se juega?</h2>
+        <ul class="overlay-rules">
+          <li data-i18n="allin.rule1">Hay una moneda escondida en una de las tres cajas.</li>
+          <li data-i18n="allin.rule2">Elige una caja con las flechas izquierda y derecha.</li>
+          <li data-i18n="allin.rule3">Pulsa Enter o espacio y confirma que quieres abrirla.</li>
+          <li data-i18n="allin.rule4">Solo tienes una oportunidad por partida: si fallas, la caja se abre vacía.</li>
+          <li data-i18n="allin.rule5">Aciertas: +10.000 puntos globales. Fallas: −5.000 puntos (nunca bajarás de 0).</li>
+        </ul>
+        <button class="btn btn-primary" id="start-btn" data-i18n="allin.startButton">Empezar</button>
+        <p class="allin-stake-warning" id="stake-warning" role="alert" hidden></p>
+      </div>
+
+      <div class="allin-stage">
+        <div class="allin-objective">
+          <span class="allin-coin allin-coin--target" role="img" data-i18n-aria-label="allin.ariaCoin" aria-label="Moneda dorada">
+            <span class="allin-coin__star">★</span>
+          </span>
+          <span class="allin-objective-label" data-i18n="allin.objective">MONEDA OBJETIVO</span>
+        </div>
+
+        <div class="allin-boxes" id="allin-boxes" data-i18n-aria-label="allin.ariaBoxes" aria-label="Elige una caja">
+          <button class="allin-box" type="button" data-index="0" aria-label="Caja 1">
+            <span class="allin-box__scene">
+              <span class="allin-box__shadow" aria-hidden="true"></span>
+              <span class="allin-box__body">
+                <span class="allin-box__inside" aria-hidden="true"></span>
+                <span class="allin-box__side allin-box__side--left" aria-hidden="true"></span>
+                <span class="allin-box__side allin-box__side--right" aria-hidden="true"></span>
+                <span class="allin-box__front" aria-hidden="true">
+                  <span class="allin-box__fold"></span>
+                  <span class="allin-box__tape"></span>
+                  <span class="allin-box__stamp">ALL IN</span>
+                  <span class="allin-box__number">1</span>
+                </span>
+                <span class="allin-box__lid" aria-hidden="true">
+                  <span class="allin-box__lid-tape"></span>
+                  <span class="allin-box__lid-edge"></span>
+                </span>
+              </span>
+              <span class="allin-box__coin" aria-hidden="true"><span>★</span></span>
+            </span>
+          </button>
+
+          <button class="allin-box" type="button" data-index="1" aria-label="Caja 2">
+            <span class="allin-box__scene">
+              <span class="allin-box__shadow" aria-hidden="true"></span>
+              <span class="allin-box__body">
+                <span class="allin-box__inside" aria-hidden="true"></span>
+                <span class="allin-box__side allin-box__side--left" aria-hidden="true"></span>
+                <span class="allin-box__side allin-box__side--right" aria-hidden="true"></span>
+                <span class="allin-box__front" aria-hidden="true">
+                  <span class="allin-box__fold"></span>
+                  <span class="allin-box__tape"></span>
+                  <span class="allin-box__stamp">ALL IN</span>
+                  <span class="allin-box__number">2</span>
+                </span>
+                <span class="allin-box__lid" aria-hidden="true">
+                  <span class="allin-box__lid-tape"></span>
+                  <span class="allin-box__lid-edge"></span>
+                </span>
+              </span>
+              <span class="allin-box__coin" aria-hidden="true"><span>★</span></span>
+            </span>
+          </button>
+
+          <button class="allin-box" type="button" data-index="2" aria-label="Caja 3">
+            <span class="allin-box__scene">
+              <span class="allin-box__shadow" aria-hidden="true"></span>
+              <span class="allin-box__body">
+                <span class="allin-box__inside" aria-hidden="true"></span>
+                <span class="allin-box__side allin-box__side--left" aria-hidden="true"></span>
+                <span class="allin-box__side allin-box__side--right" aria-hidden="true"></span>
+                <span class="allin-box__front" aria-hidden="true">
+                  <span class="allin-box__fold"></span>
+                  <span class="allin-box__tape"></span>
+                  <span class="allin-box__stamp">ALL IN</span>
+                  <span class="allin-box__number">3</span>
+                </span>
+                <span class="allin-box__lid" aria-hidden="true">
+                  <span class="allin-box__lid-tape"></span>
+                  <span class="allin-box__lid-edge"></span>
+                </span>
+              </span>
+              <span class="allin-box__coin" aria-hidden="true"><span>★</span></span>
+            </span>
+          </button>
+        </div>
+
+        <div class="allin-bottom">
+          <p class="allin-hint" data-i18n="allin.hint">Usa ←/→ para elegir · Enter para abrir</p>
+          <p class="game-message" id="message" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="allin-confirm-overlay" id="allin-confirm" role="dialog" aria-modal="true" aria-labelledby="allin-confirm-title" hidden>
+    <div class="allin-confirm-card">
+      <span class="allin-confirm-icon" aria-hidden="true">?</span>
+      <h2 id="allin-confirm-title"></h2>
+      <p class="allin-confirm-subtitle" data-i18n="allin.confirmSubtitle">Solo tienes una oportunidad.</p>
+      <div class="overlay-actions">
+        <button class="btn btn-secondary" id="allin-confirm-no" data-i18n="allin.confirmNo">No</button>
+        <button class="btn btn-primary" id="allin-confirm-yes" data-i18n="allin.confirmYes">Sí</button>
+      </div>
+    </div>
+  </div>
+
+  <footer data-i18n="allin.footer">Hecha para que la suerte decida por ti.</footer>
+</body>
+</html>

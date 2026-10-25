@@ -1,0 +1,17 @@
+INFORME DEL INSPECTOR GENERAL SOBRE EL EXPEDIENTE NIBIRU
+
+Auditoría de cumplimiento. Clasificación: reservado. Copia filtrada.
+
+En marzo del año 2000, durante unas obras de consolidación en el zigurat de Ur, la Junta Estatal de Antigüedades de Irak recuperó una tablilla de arcilla de la tercera dinastía. Su contenido, verificado por tres comisiones independientes y por una cuarta que no se fiaba de las otras tres, acredita la existencia de los anunnaki y describe su sistema de propulsión. Sadam Husein ordenó custodiarla en un palacio de Bagdad y, como ya había hecho con los ladrillos de Babilonia, mandó grabar su nombre en el reverso.
+
+Entretanto, los inspectores de Naciones Unidas recorrieron Irak en busca de armas de destrucción masiva. No encontraron ninguna, y a nadie se le ocurrió revisar el inventario de cerámica. En la cumbre de las Azores posaron cuatro mandatarios, pero el anexo confidencial del acta registra una quinta asistente: la tablilla, representada por una fotocopia. El Gobierno español aseguró entonces que Irak ocultaba algo de enorme gravedad, y técnicamente tenía razón.
+
+En la guerra, su recorrido fue, según el expediente, «accidentado». Trasladada al Museo Nacional para su protección, desapareció en el saqueo de abril. Reapareció en un mercado de Bagdad, cambió de manos cuatro veces y fue intervenida en febrero de 2004 en un control conjunto de tropas estadounidenses y de la Brigada Plus Ultra. El acta, firmada por un cabo de Jaén, la describe como «albarán de entrega de cebada», y una copia sigue archivada en Bétera. Los anunnaki, igual que los funcionarios sumerios que los adoraban, redactaban lo importante en formato de albarán: remitente, destinatario y cantidad. Faltaba el IVA, que se inventó después. Acabó en un almacén de Ohio con otras tres mil piezas.
+
+En 2006, un asiriólogo contratado por el Pentágono para justificar el alquiler del almacén leyó la cara posterior. No era cebada. Era una citación. La tablilla contiene la ruta hasta Nibiru, cuya órbita dura tres mil seiscientos años, y requiere formalmente a la humanidad para que comparezca. Los anunnaki no piensan venir. El texto es inequívoco: la administración no se desplaza; es el interesado quien comparece.
+
+El Departamento de Defensa convocó entonces un concurso para el «servicio de traslado de comparecientes a destino no especificado». Se presentó una sola empresa, con Marte como destino oficial. El comité la consideró brillante: ninguna comisión del Congreso aprobaría una partida titulada «comparecencia ante deidades sumerias», mientras que Marte se aprueba casi solo. La adjudicataria se llamaba SpaceX. Marte es la tapadera; Nibiru, el destino. Que una infraestructura no sirva para lo que anuncia no escandaliza a ningún país serio: el aeropuerto de Castellón se inauguró en 2011 y recibió su primer vuelo comercial en 2015.
+
+Queda un obstáculo. La citación exige el original, y el original pertenece a Irak. En 2021, entre las diecisiete mil piezas que Estados Unidos devolvió a Bagdad, faltaba la tablilla: seguía inventariada como cebada. El Ministerio de Cultura iraquí la ha reclamado y exige solicitar el préstamo en persona, en Bagdad y con la documentación completa.
+
+El viaje de la humanidad a Nibiru depende, por tanto, de que alguien pase antes por Bagdad. La primera respuesta del ministerio llegó en marzo. Contenía dos sellos, tres firmas y una frase que Mesopotamia lleva cinco mil años perfeccionando: vuelva usted mañana.
